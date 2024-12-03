@@ -9,7 +9,7 @@
 > Sandwich cost: 0,09$ ⏺️ (0)<br>
 > Money in the bank: 41291$ 🔼 (+380)$<br>
 > User database weight: 109mb ⏺️ (+1mb)<br>
-> Message database weight: 765mb ⏺️ (+14mb)<br>
+> Message database weight: 779mb ⏺️ (+14mb)<br>
 > Backup database weight: 11,04gb ⏺️ (+1,14gb)<br>
 > Connected channels: 8 ⏺️ (0)<br>
 > Last information updated: 02/12/2024 23:59 (UTC)<br>
