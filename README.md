@@ -14,6 +14,19 @@
 > Connected channels: 8 ⏺️ (0)<br>
 > Last information updated: 02/12/2024 23:59 (UTC)<br>
 
+<table>
+	<tbody>
+		<tr>
+			<td><img style="border: none; border-radius: 50px;" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=842391808&format=image"></td>
+			<td><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=834223961&format=image"></td>
+		</tr>
+		<tr>
+			<td><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1493621083&format=image"></td>
+			<td><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1591855365&format=image"></td>
+		</tr>
+	</tbody>
+</table>
+
 🐸 **PPL PAY daily statistics**
 > Users: 2 ⏺️ (0)<br>
 > Diamonds in a bank: 0 ⏺️ (0)<br>
