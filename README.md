@@ -19,21 +19,21 @@
 		<tr>
 			<td>
 				<p>Большие данные</p>
-				<img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=842391808&format=image">
+				<a href="https://developer.mozilla.org"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=842391808&format=image"></a>
 			</td>
 			<td>
 				<p>Вес баз данных</p>
-				<img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=834223961&format=image">
+				<a href="https://developer.mozilla.org"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=834223961&format=image"></a>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<p>Прочее</p>
-				<img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1493621083&format=image">
+				<a href="https://developer.mozilla.org"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1493621083&format=image"></a>
 			</td>
 			<td>
 				<p>Стоимость бутера</p>
-				<img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1591855365&format=image">
+				<a href="https://developer.mozilla.org"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1591855365&format=image"></a>
 			</td>
 		</tr>
 	</tbody>
