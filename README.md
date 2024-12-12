@@ -3,16 +3,16 @@
 
 ## My projects info
 🥪 **butterBror daily statistics**
-> Registered users: 55010 🔼 (+1)<br>
-> Sandwiches in a bank: 438733.22 🔼 (+384,75)<br>
-> Average user balance: 7,98 🔼 (+0,01)<br>
+> Registered users: 56548 🔼 (+2)<br>
+> Sandwiches in a bank: 454724,38 🔼 (+360,16)<br>
+> Average user balance: 8,04 🔼 (+0,01)<br>
 > Sandwich cost: 0,09$ ⏺️ (0)<br>
-> Money in the bank: 41291$ 🔼 (+380)$<br>
-> User database weight: 109mb ⏺️ (+1mb)<br>
-> Message database weight: 779mb ⏺️ (+14mb)<br>
-> Backup database weight: 11,04gb ⏺️ (+1,14gb)<br>
+> Money in the bank: 42815$ ⏺️ (0)$<br>
+> User database weight: 118427265 bytes ⏺️ (-)<br>
+> Message database weight: 844642909 bytes ⏺️ (-)<br>
+> Backup database weight: 11989407625 bytes ⏺️ (-)<br>
 > Connected channels: 8 ⏺️ (0)<br>
-> Last information updated: 02/12/2024 23:59 (UTC)<br>
+> Last information updated: 11/12/2024 23:59 (UTC)<br>
 
 <table>
 	<tbody>
