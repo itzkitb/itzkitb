@@ -1,5 +1,5 @@
 ## ![rilaveHi](https://cdn.7tv.app/emote/01G1H9CK9R0005G1MWWMPGT0YW/2x.webp) Hi. Welcome to my github page!
-> Hello, I'm ItzKITb - a Russian developer in C#, java, javascript, node.js, also a little game dev on godot.<br>You are right now on my github page with my projects!
+> Hello, I'm ItzKITb - a Russian developer in C# (.NET), java, javascript, node.js, also a little game dev on godot.<br>You are right now on my github page with my projects!
 
 ## My projects info
 🥪 **butterBror daily statistics**
