@@ -3,36 +3,36 @@
 
 ## My projects info
 🥪 **butterBror daily statistics**
-> Registered users: 56548 🔼 (+2)<br>
-> Sandwiches in a bank: 454724,38 🔼 (+360,16)<br>
-> Average user balance: 8,04 🔼 (+0,01)<br>
-> Sandwich cost: 0,09$ ⏺️ (0)<br>
-> Money in the bank: 42815$ ⏺️ (0)$<br>
-> User database weight: 118427265 bytes ⏺️ (-)<br>
-> Message database weight: 844642909 bytes ⏺️ (-)<br>
-> Backup database weight: 11989407625 bytes ⏺️ (-)<br>
-> Connected channels: 8 ⏺️ (0)<br>
-> Last information updated: 11/12/2024 23:59 (UTC)<br>
+> Registered users: 59497 🔼 (+171)<br>
+> Sandwiches in a bank: 496790,47 🔼 (+2111,37)<br>
+> Average user balance: 8,35 🔼 (+0,01)<br>
+> Sandwich cost: 0,11$ 🔼 (+0,01)<br>
+> Money in the bank: 53933$ ⏺️ (0)$<br>
+> User database weight: 123259623 bytes (0.114 GB) ⏺️ (-)<br>
+> Message database weight: 898199940 bytes (0.837 GB) ⏺️ (-)<br>
+> Backup database weight: 14483311432 bytes (13.489 GB) ⏺️ (-)<br>
+> Connected channels: 6 ⏺️ (0)<br>
+> Last information updated: 04/01/2025<br>
 
 <table>
 	<tbody>
 		<tr>
 			<td>
-				<p>Большие данные</p>
+				<p>Big data</p>
 				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=842391808&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=842391808&format=image"></a>
 			</td>
 			<td>
-				<p>Вес баз данных</p>
+				<p>Database weight</p>
 				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=834223961&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=834223961&format=image"></a>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<p>Прочее</p>
+				<p>Other</p>
 				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1493621083&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1493621083&format=image"></a>
 			</td>
 			<td>
-				<p>Стоимость бутера</p>
+				<p>Sandwich cost</p>
 				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1591855365&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1591855365&format=image"></a>
 			</td>
 		</tr>
