@@ -3,16 +3,16 @@
 
 ## My projects info
 🥪 **butterBror daily statistics**
-> Registered users: 72576<br>
-> Sandwiches in a bank: 641727,7<br>
-> Average user balance: 8,84<br>
-> Sandwich cost: $0,14<br>
-> Money in the bank: $91047<br>
-> User database weight: 0,145 GB<br>
-> Message database weight: 0,971 GB<br>
-> Backup database weight: 46,112 GB<br>
+> Registered users: 72698<br>
+> Sandwiches in a bank: 643336,6<br>
+> Average user balance: 8,85<br>
+> Sandwich cost: $0,16<br>
+> Virtual money in the bank: $104324<br>
+> User database weight: 145,37 MB<br>
+> Message database weight: 976,46 MB<br>
+> Backup database weight: 46,2 GB<br>
 > Connected channels: 7<br>
-> Last information updated: 12/05/2025<br>
+> Last information updated: 13/05/2025<br>
 
 <table>
 	<tbody>
@@ -43,6 +43,9 @@
 		<tr>
 			<td>
 				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=494785880&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=494785880&format=image"></a>
+    			</td>
+			<td>
+				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=584948599&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=584948599&format=image"></a>
     			</td>
 		</tr>
 	</tbody>
