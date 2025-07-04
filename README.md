@@ -1,58 +1,21 @@
-## ![rilaveHi](https://cdn.7tv.app/emote/01G1H9CK9R0005G1MWWMPGT0YW/2x.webp) Hi. Welcome to my github page!
-> Hello, I'm ItzKITb - a Russian developer in C# (.NET), java, javascript, node.js, also a little game dev on godot.<br>You are right now on my github page with my projects!
+<img src="https://images.itzkitb.lol/github/rilaveHi.webp" width="150pt" align="right"/>
+<img src="https://images.itzkitb.lol/github/hi.png" width="300pt"/>
 
-## My projects info
-🥪 **butterBror daily statistics**
-> Registered users: 72698<br>
-> Sandwiches in a bank: 643336,6<br>
-> Average user balance: 8,85<br>
-> Sandwich cost: $0,16<br>
-> Virtual money in the bank: $104324<br>
-> User database weight: 145,37 MB<br>
-> Message database weight: 976,46 MB<br>
-> Backup database weight: 46,2 GB<br>
-> Connected channels: 7<br>
-> Last information updated: 13/05/2025<br>
+Hello, I'm ItzKITb - a Russian developer-freelancer. I create various projects, mainly in c# (.NET), but I also know other programming languages. :shipit:
 
-<table>
-	<tbody>
-		<tr>
-			<td>
-				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1487310618&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1487310618&format=image"></a>
-			</td>
-			<td>
-				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=2065823676&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=2065823676&format=image"></a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=927667728&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=927667728&format=image"></a>
-			</td>
-			<td>
-				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1395390754&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1395390754&format=image"></a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1964172894&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=1964172894&format=image"></a>
-			</td>
-			<td>
-				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=787158816&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=787158816&format=image"></a>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=494785880&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=494785880&format=image"></a>
-    			</td>
-			<td>
-				<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=584948599&format=interactive"><img src="https://docs.google.com/spreadsheets/d/e/2PACX-1vREPUE-GF7fVoHEPNVG6IyPoqP5iWUGL_VTNtlwBbE2KW_ys_4Gmaog-o7lrKNbwPybr_vemxew3p1M/pubchart?oid=584948599&format=image"></a>
-    			</td>
-		</tr>
-	</tbody>
-</table>
+<img src="https://images.itzkitb.lol/github/languages.png" width="300pt"/>
 
-🐸 **PPL PAY daily statistics**
-> Users: 2 ⏺️ (0)<br>
-> Diamonds in a bank: 0 ⏺️ (0)<br>
-> Database weight: 2.94kb ⏺️ (0)<br>
-> Last information updated: 11/28/2024 17:37 (UTC)<br>
+<a href="https://dotnet.microsoft.com/en-us/languages/csharp"><img src="https://images.itzkitb.lol/github/c%23.png" width="40pt" alt="CSharp"/></a>
+<a href="https://www.python.org/psf-landing/"><img src="https://images.itzkitb.lol/github/python.png" width="40pt" alt="Python"/></a>
+<a href="https://www.java.com/en/"><img src="https://images.itzkitb.lol/github/java.png" width="40pt" alt="Java"/></a>
+<a href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/"><img src="https://images.itzkitb.lol/github/javascript.png" width="40pt" alt="JavaScript"/></a>
+<a href="https://godotengine.org/"><img src="https://images.itzkitb.lol/github/godot.png" width="40pt" alt="GDScript"/></a>
+
+<img src="https://images.itzkitb.lol/github/projects.png" width="300pt"/>
+
+<a href="https://github.com/itzkitb/butterBror"><img src="https://images.itzkitb.lol/github/butterbror_block.png" width="40pt" alt="butterBror"/></a>
+<a href="https://github.com/itzkitb/Orangineer"><img src="https://images.itzkitb.lol/github/orangineer_block.png" width="40pt" alt="Orangineer"/></a>
+<a href="https://github.com/itzkitb/DankDB"><img src="https://images.itzkitb.lol/github/dankdb_block.png" width="40pt" alt="DankDB"/></a>
+<img src="https://images.itzkitb.lol/github/cattype_block.png" width="40pt" alt="catType"/>
+<a href="https://t.me/itzkitb"><img src="https://images.itzkitb.lol/github/peepoawards_block.png" width="40pt" alt="peepoAwards"/></a>
+<a href="https://bank.itzkitb.lol"><img src="https://images.itzkitb.lol/github/pplpay_block.png" width="40pt" alt="PPL PAY"/></a>
