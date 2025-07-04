@@ -1,7 +1,7 @@
 <img src="https://images.itzkitb.lol/github/rilaveHi.webp" width="150pt" align="right"/>
 <img src="https://images.itzkitb.lol/github/hi.png" width="300pt"/>
 
-Hello, I'm ItzKITb - a Russian developer-freelancer. I create various projects, mainly in c# (.NET), but I also know other programming languages. :shipit:
+I'm ItzKITb - a Russian developer-freelancer. I create various projects, mainly in c# (.NET), but I also know other programming languages. :shipit:
 
 <img src="https://images.itzkitb.lol/github/languages.png" width="300pt"/>
 
