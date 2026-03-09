@@ -1,0 +1,87 @@
+:root {
+    --bg-color: #000000;
+    --main-color: #d1d1d1;
+    --accent-color: #ff8f5c;
+}
+
+::selection {
+    background-color: var(--accent-color);
+    color: var(--main-color); 
+}
+
+::-moz-selection {
+    background-color: var(--accent-color);
+    color: var(--main-color);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--main-color);
+    font-family: "Source Code Pro", monospace;
+    padding: 20px;
+    margin: 0;
+    line-height: 1.4;
+    overflow-x: hidden;
+}
+
+#terminal {
+    display: flex;
+    flex-direction: column;
+}
+
+.system-msg {
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+        
+.highlight {
+    color: var(--accent-color);
+}
+
+#history {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    outline: none;
+    flex-wrap: wrap;
+}
+
+.prompt {
+    color: var(--accent-color);
+    white-space: nowrap;
+}
+
+#display-wrapper {
+    display: inline-block;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+#cursor {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    0%, 100% { background-color: var(--accent-color); color: var(--bg-color); }
+    50% { background-color: transparent; color: var(--main-color); }
+}
+
+#hidden-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.command-output {
+    margin-bottom: 5px;
+}
+
+.error {
+    color: #ff5c5c;
+}
