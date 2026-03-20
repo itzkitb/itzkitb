@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a0e09">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>SillyApps ⚬ Docs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #1a0e09;
+            --text-color: #d1d1d1;
+            --accent-color: #ff8f5c;
+            --container-bg: #1a0e09;
+            --border-width: 2px;
+            --spacing-unit: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+        
+        .unselectable {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        body {
+            font-family: "Source Code Pro", monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-unit);
+            border-bottom: var(--border-width) solid var(--accent-color);
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .brand:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            background: transparent;
+            color: var(--accent-color);
+            border: var(--border-width) solid var(--accent-color);
+            padding: 10px 20px;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+            margin-left: 10px;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .btn:active {
+            transform: scale(0.9);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-color);
+            color: var(--bg-color);
+            padding: 12px 24px;
+            border: var(--border-width) solid var(--accent-color);
+            font-weight: bold;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+            bottom: 40px;
+        }
+
+        /* Main Content Styles */
+        main {
+            flex: 1;
+            padding: var(--spacing-unit);
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            border: var(--border-width) solid var(--accent-color);
+            padding: 40px;
+        }
+
+        /* Utility Classes */
+        .error-msg {
+            color: var(--accent-color);
+            border: var(--border-width) solid var(--accent-color);
+            padding: 15px;
+            margin-bottom: 20px;
+            display: none;
+            font-weight: bold;
+        }
+
+        .loading {
+            text-align: center;
+            color: var(--text-color);
+            font-style: italic;
+            padding: 20px;
+        }
+
+        /* Markdown Content Overrides */
+        .markdown-body {
+            color: var(--text-color);
+        }
+
+        .markdown-body a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-color);
+        }
+
+        .markdown-body a:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .markdown-body h1, 
+        .markdown-body h2, 
+        .markdown-body h3 {
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--text-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        .markdown-body code {
+            background-color: #2a1e19;
+            color: var(--accent-color);
+            padding: 2px 6px;
+            border: 1px solid var(--accent-color);
+        }
+
+        .markdown-body pre {
+            background-color: #2a1e19;
+            border: var(--border-width) solid var(--accent-color);
+            padding: 15px;
+            overflow: auto;
+        }
+
+        .markdown-body pre code {
+            background: transparent;
+            border: none;
+            padding: 0;
+            color: var(--text-color);
+        }
+
+        .markdown-body blockquote {
+            border-left: 4px solid var(--accent-color);
+            color: var(--text-color);
+            padding-left: 1em;
+            margin-left: 0;
+            background: #2a1e19;
+            padding: 10px;
+        }
+
+        /* Image Styles */
+        .markdown-body img {
+            max-width: 100%;
+            height: auto;
+            border: var(--border-width) solid var(--accent-color);
+            display: block;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
+        .markdown-body img:hover {
+            opacity: 0.8;
+        }
+
+        .markdown-body figure {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .markdown-body figcaption {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 14, 9, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            border: var(--border-width) solid var(--accent-color);
+            cursor: pointer;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--accent-color);
+            font-size: 2rem;
+            cursor: pointer;
+            border: var(--border-width) solid var(--accent-color);
+            padding: 5px 15px;
+            background: transparent;
+            font-family: inherit;
+        }
+
+        .lightbox-close:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header {
+                gap: 15px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+            
+            .btn {
+                padding: 10px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="brand unselectable">SillyApps</a>
+        <div>
+            <button id="shareBtn" class="btn unselectable">Share</button>
+            <button id="copyBtn" class="btn unselectable">Copy</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="error-box" class="error-msg"></div>
+            <div id="loading" class="loading">Initializing...</div>
+            <div id="content" class="markdown-body"></div>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox unselectable">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <img id="lightboxImg" src="" alt="Full size image">
+    </div>
+
+    <div id="toast" class="toast unselectable">Copied!</div>
+
+    <script>
+        const CONFIG = {
+            basePath: '/f/data/',
+            encryptedPath: '/f/edata/',
+            extension: '.txt',
+            encryptedExtension: '.bleh',
+            homeUrl: '/',
+            // Allowed image protocols for security
+            allowedImageProtocols: ['http:', 'https:', 'data:image/']
+        };
+        
+        const CRYPTO_CONFIG = {
+            magic: new TextEncoder().encode("TUPD"),
+            version: 0x01,
+            saltSize: 16,
+            ivSize: 12,
+            tagSize: 16,
+            pbkdf2Iterations: 100000,
+            keyLength: 256
+        };
+
+        // Configure marked.js with custom renderer for images
+        const renderer = new marked.Renderer();
+        
+        renderer.image = function({ href, title, text, tokens }) {
+            const titleAttr = title ? ` title="${title}"` : '';
+            const altText = text || '';
+    
+            return `
+                <figure>
+                    <img src="${href}" alt="${altText}"${titleAttr} onclick="openLightbox(this.src)">
+                </figure>
+            `;
+        };
+
+        marked.setOptions({
+            renderer: renderer,
+            breaks: true,
+            gfm: true
+        });
+
+        // Lightbox functions (global scope for onclick)
+        window.openLightbox = function(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeLightbox = function() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentDiv = document.getElementById('content');
+            const errorBox = document.getElementById('error-box');
+            const loadingDiv = document.getElementById('loading');
+            const shareBtn = document.getElementById('shareBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const toast = document.getElementById('toast');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxClose = document.getElementById('lightboxClose');
+            let markdownContent = "";
+            
+            shareBtn.addEventListener('click', handleShare);
+            copyBtn.addEventListener('click', handleCopy);
+            lightboxClose.addEventListener('click', closeLightbox);
+            
+            // Close lightbox on background click
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // Close lightbox on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+            
+            loadContent();
+
+            async function loadContent() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const fileName = urlParams.get('f');
+                const password = urlParams.get('p');
+
+                if (!fileName) {
+                    showError('Error: Missing query parameter "?f=filename".');
+                    return;
+                }
+
+                const safeFileNameRegex = /^[a-zA-Z0-9_-]+$/;
+                if (!safeFileNameRegex.test(fileName)) {
+                    showError('Error: Invalid filename format.');
+                    return;
+                }
+                
+                const encryptCheck = await fetch(`${CONFIG.encryptedPath}${fileName}${CONFIG.encryptedExtension}`);
+                const isEncrypted = password && encryptCheck.ok;
+                const fileExtension = isEncrypted ? CONFIG.encryptedExtension : CONFIG.extension;
+                const folder = isEncrypted ? CONFIG.encryptedPath : CONFIG.basePath;
+                const filePath = `${folder}${fileName}${fileExtension}`;
+
+                try {
+                    const response = await fetch(filePath);
+                    if (!response.ok) {
+                        if (response.status == 404) {
+                            showError(`Oops... File not found on server`);
+                            return
+                        }
+                        
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    
+                    if (isEncrypted) {
+                        if (!password) {
+                            showError('Error: Encrypted file requires "?p=password" parameter.');
+                            return;
+                        }
+            
+                        const encryptedBuffer = await response.arrayBuffer();
+                        const decryptedText = await decryptContent(encryptedBuffer, password);
+                        markdownContent = decryptedText;
+                        contentDiv.innerHTML = marked.parse(decryptedText);
+                    } else {
+                        const markdownText = await response.text();
+                        markdownContent = markdownText;
+                        contentDiv.innerHTML = marked.parse(markdownText);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    showError(`Failed to load: ${err.message}`);
+                } finally {
+                    loadingDiv.style.display = 'none';
+                }
+            }
+
+            function showError(message) {
+                loadingDiv.style.display = 'none';
+                errorBox.textContent = message;
+                errorBox.style.display = 'block';
+            }
+            
+            function showToast(message) {
+                toast.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            }
+            
+            function handleShare() {
+                copyData(window.location.href, 'Link copied!');
+            }
+            
+            function handleCopy() {
+                copyData(markdownContent, 'Markdown copied!');
+            }
+            
+            function copyData(text, successMessage) {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        showToast(successMessage);
+                    }).catch(() => {
+                        copyWithTextarea(text, successMessage);
+                    });
+                } else {
+                    copyWithTextarea(text, successMessage);
+                }
+            }
+
+            function copyWithTextarea(text, successMessage) {
+                const textarea = document.createElement("textarea");
+                textarea.style.position = "absolute";
+                textarea.style.left = "-9999px";
+                textarea.style.top = "-9999px";
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                
+                textarea.select();
+                textarea.setSelectionRange(0, 99999);
+                
+                try {
+                    const successful = document.execCommand('copy');
+                    if (successful) {
+                        showToast(successMessage);
+                    } else {
+                        showToast('Copy failed');
+                    }
+                } catch (err) {
+                    console.error('Copy failed: ', err);
+                    showToast('Copy failed');
+                }
+                
+                document.body.removeChild(textarea);
+            }
+            
+            // Binary Parser
+            function parseEncryptedFile(arrayBuffer) {
+                const dataView = new DataView(arrayBuffer);
+                const uint8 = new Uint8Array(arrayBuffer);
+    
+                const magic = uint8.slice(0, 4);
+                if (!magic.every((b, i) => b === CRYPTO_CONFIG.magic[i])) {
+                    throw new Error("Invalid file format: magic bytes mismatch");
+                }
+    
+                const version = dataView.getUint8(4);
+                if (version !== CRYPTO_CONFIG.version) {
+                    throw new Error(`Unsupported format version: ${version}`);
+                }
+    
+                const offset = 5;
+                const salt = uint8.slice(offset, offset + CRYPTO_CONFIG.saltSize);
+                const iv = uint8.slice(offset + CRYPTO_CONFIG.saltSize, offset + CRYPTO_CONFIG.saltSize + CRYPTO_CONFIG.ivSize);
+                const authTag = uint8.slice(
+                    offset + CRYPTO_CONFIG.saltSize + CRYPTO_CONFIG.ivSize,
+                    offset + CRYPTO_CONFIG.saltSize + CRYPTO_CONFIG.ivSize + CRYPTO_CONFIG.tagSize
+                );
+                const ciphertext = uint8.slice(
+                    offset + CRYPTO_CONFIG.saltSize + CRYPTO_CONFIG.ivSize + CRYPTO_CONFIG.tagSize
+                );
+    
+                return { salt, iv, authTag, ciphertext };
+            }
+
+            async function deriveKey(password, salt) {
+                const enc = new TextEncoder();
+                const keyMaterial = await crypto.subtle.importKey(
+                    "raw",
+                    enc.encode(password),
+                    "PBKDF2",
+                    false,
+                    ["deriveKey"]
+                );
+    
+                return crypto.subtle.deriveKey(
+                    {
+                        name: "PBKDF2",
+                        salt: salt,
+                        iterations: CRYPTO_CONFIG.pbkdf2Iterations,
+                        hash: "SHA-256"
+                    },
+                    keyMaterial,
+                    { name: "AES-GCM", length: CRYPTO_CONFIG.keyLength },
+                    false,
+                    ["decrypt"]
+                );
+            }
+
+            async function decryptContent(encryptedData, password) {
+                try {
+                    const { salt, iv, authTag, ciphertext } = parseEncryptedFile(encryptedData);
+        
+                    const combined = new Uint8Array(ciphertext.length + authTag.length);
+                    combined.set(ciphertext);
+                    combined.set(authTag, ciphertext.length);
+        
+                    const key = await deriveKey(password, salt);
+        
+                    const decrypted = await crypto.subtle.decrypt(
+                        { name: "AES-GCM", iv: iv },
+                        key,
+                        combined
+                    );
+        
+                    return new TextDecoder("utf-8").decode(decrypted);
+                } catch (err) {
+                    if (err.name === "OperationFailed" || err.message.includes("tag")) {
+                        throw new Error("❌ Wrong password or corrupted file");
+                    }
+                    throw err;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
