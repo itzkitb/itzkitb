@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a0e09">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <title>SillyApps ⚬ Redirect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1a0e09;
+            --text-color: #d1d1d1;
+            --accent-color: #ff8f5c;
+            --container-bg: #1a0e09;
+            --border-width: 2px;
+            --spacing-unit: 20px;
+        }
+
+        * { box-sizing: border-box; }
+        
+        .unselectable {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        body {
+            font-family: "Source Code Pro", monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-unit);
+            border-bottom: var(--border-width) solid var(--accent-color);
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .brand:hover { text-decoration: underline; }
+
+        main {
+            flex: 1;
+            padding: var(--spacing-unit);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            border: var(--border-width) solid var(--accent-color);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .redirect-message {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .redirect-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: var(--border-width) solid var(--accent-color);
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: all 0.2s ease;
+        }
+
+        .redirect-link:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .timer {
+            color: var(--text-color);
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="/" class="brand unselectable">SillyApps</a>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="redirect-message">
+                Redirect to <br>
+                <a href="https://discord.gg/uJthAzqRfV" class="redirect-link" id="targetLink">https://discord.gg/uJthAzqRfV</a>
+            </div>
+            <div style="margin-top: 20px; font-size: 0.9rem;">
+                Didn't redirect? <a href="https://discord.gg/uJthAzqRfV" class="redirect-link">Click here</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function() {
+            const targetUrl = 'https://discord.gg/uJthAzqRfV';
+            window.location.replace(targetUrl);
+            
+            // Fallback redirect if JS fails
+            setTimeout(() => {
+                window.location.replace(targetUrl);
+            }, 3500);
+        })();
+    </script>
+</body>
+</html>
