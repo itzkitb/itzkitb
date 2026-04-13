@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <title>reQuit ⚬ тест компетенций</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1a0e09;
+      --text: #d1d1d1;
+      --accent: #ff8f5c;
+      --dark: #343434
+    }
+    
+    body {
+      font-family: "Source Code Pro", monospace;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      color: var(--accent);
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    input[type="text"], textarea {
+      font-family: "Source Code Pro", monospace;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      color: var(--text);
+      box-sizing: border-box;
+    }
+    
+    textarea {
+      min-height: 60px;
+      resize: vertical;
+    }
+    
+    .card {
+      background: var(--bg);
+      padding: 16px;
+      margin-bottom: 16px;
+      border: 2px solid var(--accent);
+    }
+    
+    .options {
+      display: grid;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      cursor: pointer;
+    }
+    
+    .option input {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--accent);
+      background: transparent;
+      margin-top: 3px;
+      flex-shrink: 0;
+      cursor: pointer;
+      position: relative;
+      display: grid;
+      place-content: center;
+    }
+
+    .option input:checked {
+      background: var(--accent);
+    }
+
+    .option input:checked::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: var(--accent);
+    }
+
+    .option input:hover {
+      background: rgba(255, 143, 92, 0.2);
+    }
+    
+    button {
+      background: var(--accent);
+      font-family: "Source Code Pro", monospace;
+      color: var(--dark);
+      border: none;
+      padding: 12px 24px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 10px;
+    }
+    
+    button:hover {
+      opacity: 0.9;
+    }
+    
+    .cat-title {
+      color: var(--accent);
+      margin-top: 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    
+    .q-id {
+      font-size: 0.8em;
+      color: #888;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>тест компетенций</h1>
+  <label for="empName">никнейм:</label>
+  <input type="text" id="empName" placeholder="введите имя..." required>
+  <form id="quizForm"></form>
+  <button type="button" onclick="generateAndDownload()">закончить тестирование</button>
+</div>
+
+<script>
+
+console.log("не читери")
+// браузер закрой :)
+
+const questions = [
+  // нарратив и мир
+  {
+    id: "N1", cat: "нарратив и мир",
+    text: "опен-ворлд, три фракции с многолетним конфликтом. история передаётся через окружение, но тест показал: 60% игроков не понимают причину вражды к финалу. бюджет на новые сцены исчерпан",
+    opts: [
+      { k: "A", t: "обязательный диалог-брифинг при первом входе в зону каждой фракции", s: { worldbuilding: 1, env_story: -1, pacing: -1, puzzle: 0, dialogue: 1 } },
+      { k: "B", t: "заменить несколько нейтральных декораций артефактами с явной историей конфликта - структуру мира не трогать", s: { worldbuilding: 2, env_story: 2, pacing: 1, puzzle: 0, dialogue: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { worldbuilding: 0, env_story: 0, pacing: 0, puzzle: 0, dialogue: 0 } },
+      { k: "D", t: "UI-«хроники»: суммирует собранный лор и подсвечивает пробелы - игрок сам решает, насколько глубоко погружаться", s: { worldbuilding: 1, env_story: -1, pacing: 0, puzzle: 0, dialogue: 0 } }
+    ]
+  },
+  {
+    id: "N2", cat: "нарратив и мир",
+    text: "союзник предаёт игрока через 40 минут. ретроспективно понятно: сигналы были, но тестеры их не заметили. вы хотите усилить удар без флэшбеков и не ломая темп",
+    opts: [
+      { k: "A", t: "за 10 минут до сцены - короткий момент, где союзник делает неоднозначный выбор: игрок видит, трактует сам", s: { worldbuilding: 1, env_story: 1, pacing: 2, puzzle: 0, dialogue: 2 } },
+      { k: "B", t: "переписать уже имеющиеся реплики союзника: сделать их более двусмысленными, не добавляя новых сцен", s: { worldbuilding: 0, env_story: 1, pacing: 1, puzzle: 0, dialogue: 1 } },
+      { k: "C", t: "затрудняюсь ответить", s: { worldbuilding: 0, env_story: 0, pacing: 0, puzzle: 0, dialogue: 0 } },
+      { k: "D", t: "после предательства - UI-флэшбек «вот что ты пропустил»: ретроспектива усиливает эмоцию", s: { worldbuilding: 0, env_story: -1, pacing: -2, puzzle: 0, dialogue: -1 } }
+    ]
+  },
+  {
+    id: "N3", cat: "нарратив и мир",
+    text: "финальная дверь в руинах. лор содержит три культа с разными ритуалами. игрок собирал фрагменты 8 часов. как закрыть эту арку пазлом?",
+    opts: [
+      { k: "A", t: "ритуал из лора: правильный выбор основан на найденных артефактах, неверный - даёт альтернативный исход", s: { worldbuilding: 2, env_story: 2, pacing: 1, puzzle: 2, dialogue: 0 } },
+      { k: "B", t: "комбинация символов без нарративной логики - интуитивно решаемая, не блокирует игроков с неполным лором", s: { worldbuilding: -1, env_story: 0, pacing: 1, puzzle: 1, dialogue: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { worldbuilding: 0, env_story: 0, pacing: 0, puzzle: 0, dialogue: 0 } },
+      { k: "D", t: "пазла нет: дверь открывается ключом рядом - фокус на финальной сцене, не на механике", s: { worldbuilding: -1, env_story: -1, pacing: 2, puzzle: -2, dialogue: 0 } }
+    ]
+  },
+  {
+    id: "N4", cat: "нарратив и мир",
+    text: "флэшбек: игрок управляет антагонистом в молодости. цель - понять его мотивы. тест: половина аудитории симпатизирует злодею настолько, что финальная тема «месть vs прощение» теряет вес",
+    opts: [
+      { k: "A", t: "добавить в флэшбек момент, где антагонист сознательно переступает черту - симпатия остаётся, но появляется моральная неоднозначность", s: { worldbuilding: 2, env_story: 1, pacing: 1, puzzle: 0, dialogue: 2 } },
+      { k: "B", t: "убрать управление: сделать флэшбек катсценой - дистанция снижает идентификацию с персонажем", s: { worldbuilding: 1, env_story: 0, pacing: 0, puzzle: 0, dialogue: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { worldbuilding: 0, env_story: 0, pacing: 0, puzzle: 0, dialogue: 0 } },
+      { k: "D", t: "сократить флэшбек до одного ключевого момента - меньше контекста, меньше симпатии", s: { worldbuilding: -1, env_story: -1, pacing: 1, puzzle: 0, dialogue: -1 } }
+    ]
+  },
+
+  // геймплей и системы
+  {
+    id: "G1", cat: "геймплей и системы",
+    text: "10-й уровень. все перки ощущаются как «+5% урона» vs «+7% урона». ребаланс с нуля невозможен по бюджету. как создать ощущение значимого выбора?",
+    opts: [
+      { k: "A", t: "квест-ребилд: игрок жертвует прогрессом ради уникальных модификаторов с нарративной подоплёкой", s: { progression: 2, economy: 1, choice: 2 } },
+      { k: "B", t: "горизонтальные перки: влияют на диалоги, крафт, исследование - не на боевые цифры", s: { progression: 1, economy: 2, choice: 1 } },
+      { k: "C", t: "затрудняюсь ответить", s: { progression: 0, economy: 0, choice: 0 } },
+      { k: "D", t: "переименовать перки и добавить иконки - визуальная дифференциация без изменения механики", s: { progression: -1, economy: 0, choice: -1 } }
+    ]
+  },
+  {
+    id: "G2", cat: "геймплей и системы",
+    text: "крафт требует 12-15 ресурсов с дропом 3-5%. 70% жалоб в отзывах - на инвентарь и гринд. переработать систему целиком нет времени",
+    opts: [
+      { k: "A", t: "переработка хлама в компоненты + сокращение рецептов до 4-5 ресурсов. редкость - только для легендарного тира", s: { inventory: 2, economy: 2, progression: 1 } },
+      { k: "B", t: "поднять дроп до 15-20% без изменений рецептов - ощущение прогресса ускорится немедленно", s: { inventory: 0, economy: 1, progression: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { inventory: 0, economy: 0, progression: 0 } },
+      { k: "D", t: "добавить торговца: обменивает хлам 10:1 на нужный ресурс - игрок сам управляет прогрессом", s: { inventory: 1, economy: -1, progression: 0 } }
+    ]
+  },
+  {
+    id: "G3", cat: "геймплей и системы",
+    text: "70% игроков спамит одну способность. переделывать анимации дорого. прямой нерф вызовет волну негатива - механика стала «культовой» в комьюнити",
+    opts: [
+      { k: "A", t: "«усталость»: после 3 применений подряд эффективность временно снижается, но способность не отнимается", s: { combat: 1, choice: 1, env_story: 0 } },
+      { k: "B", t: "ситуативный КНБ через окружение и статусы: способность слабее в условиях, которые встречаются всё чаще", s: { combat: 2, choice: 2, env_story: 1 } },
+      { k: "C", t: "затрудняюсь ответить", s: { combat: 0, choice: 0, env_story: 0 } },
+      { k: "D", t: "не трогать популярную механику - поднять остальные способности до её уровня", s: { combat: -1, choice: 0, env_story: 0 } }
+    ]
+  },
+  {
+    id: "G4", cat: "геймплей и системы",
+    text: "анал итика: новички застревают на 3-м боссе, хардкорщики проходят игру без единой смерти. оба сегмента - ключевая аудитория. бюджет на отдельные режимы ограничен",
+    opts: [
+      { k: "A", t: "скрытая адаптация: после N смертей игра незаметно снижает урон врагов и повышает HP персонажа", s: { progression: 1, choice: -1, combat: 1 } },
+      { k: "B", t: "явный выбор сложности перед боссом с описанием последствий - игрок управляет опытом осознанно", s: { progression: 1, choice: 2, combat: 1 } },
+      { k: "C", t: "затрудняюсь ответить", s: { progression: 0, choice: 0, combat: 0 } },
+      { k: "D", t: "смерть откатывает только на начало текущей фазы боя, а не на чекпоинт - снижает фрустрацию без изменений урона", s: { progression: 2, choice: 1, combat: 0 } }
+    ]
+  },
+  {
+    id: "G5", cat: "геймплей и системы",
+    text: "после 20 часов игры: «Нет смысла исследовать - всё, что нахожу, уже устарело». Система лута процедурно генерирует предметы, привязанные к уровню персонажа.",
+    opts: [
+      { k: "A", t: "«вечные» предметы с уникальными эффектами, не зависящими от уровня - исследование вознаграждает качеством, не цифрами", s: { inventory: 2, economy: 2, progression: 1 } },
+      { k: "B", t: "отложенная ценность: найденный предмет становится мощным через квест по его «пробуждению»", s: { inventory: 1, economy: 1, progression: 2 } },
+      { k: "C", t: "затрудняюсь ответить", s: { inventory: 0, economy: 0, progression: 0 } },
+      { k: "D", t: "привязать лут к зоне, а не к уровню: в старых зонах всегда слабые вещи, в новых - сильные", s: { inventory: 0, economy: -1, progression: 0 } }
+    ]
+  },
+
+  // визуал
+  {
+    id: "V1", cat: "визуал",
+    text: "новый спутник - бывший враг. визуально он должен читаться как «опасный, но союзник». бюджет на анимацию - только базовый набор",
+    opts: [
+      { k: "A", t: "силуэт с агрессивными линиями, но нейтральная цветовая палитра (не «цвет врага») - опасность в форме, безопасность в тоне", s: { char_art: 2, animation: 2, ui_ux: 1 } },
+      { k: "B", t: "детализированное лицо с усталыми глазами - история читается в микровыражениях даже в статике", s: { char_art: 1, animation: -1, ui_ux: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { char_art: 0, animation: 0, ui_ux: 0 } },
+      { k: "D", t: "сломанный элемент экипировки фракции врагов - один нарративный сигнал через деталь", s: { char_art: 2, animation: 1, ui_ux: 0 } }
+    ]
+  },
+  {
+    id: "V2", cat: "визуал",
+    text: "игрок теряется в большой локации. бюджета на новые ассеты нет. арт-директор против любого HUD - «иммерсив без интерфейса»",
+    opts: [
+      { k: "A", t: "световые якоря: тёплый свет ведёт к целям, холодный - в исследовательские тупики", s: { env_art: 2, ui_ux: 2, env_story: 1 } },
+      { k: "B", t: "ландмарки из имеющихся ассетов: перекрасить 2-3 объекта в уникальные цвета, сделать их выше", s: { env_art: 2, ui_ux: 1, env_story: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { env_art: 0, ui_ux: 0, env_story: 0 } },
+      { k: "D", t: "NPC-«проводник» в локации: один персонаж указывает направление при взаимодействии", s: { env_art: 0, ui_ux: 1, env_story: 1 } }
+    ]
+  },
+  {
+    id: "V3", cat: "визуал",
+    text: "экран с деревом навыков, крафтом и репутацией на одном развороте. жалобы на «кашу». полный редизайн исключён, но layout и группировку менять можно",
+    opts: [
+      { k: "A", t: "иерархия через вкладки: одна активная панель, остальные скрыты. единый цветовой код для типов данных", s: { ui_ux: 2, portrait: 1, data_mgmt: 1 } },
+      { k: "B", t: "контекстная фокусировка: при наведении блок подсвечивается, остальные уходят до 30% непрозрачности", s: { ui_ux: 1, portrait: 1, data_mgmt: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { ui_ux: 0, portrait: 0, data_mgmt: 0 } },
+      { k: "D", t: "добавить полнотекстовый поиск по всем элементам интерфейса", s: { ui_ux: 0, portrait: 0, data_mgmt: 1 } }
+    ]
+  },
+
+  // технические навыки
+  {
+    id: "T1", cat: "технические навыки",
+    text: "ветвящиеся диалоги с условиями, весь код - хардкод в C#. нарратор хочет менять тексты без программиста. на полный рефакторинг времени нет",
+    opts: [
+      { k: "A", t: "JSON/CSV с валидатором флагов: нарратор правит таблицы, код только читает данные", s: { dialogue_script: 2, data_mgmt: 2, tooling: 2 } },
+      { k: "B", t: "Yarn Spinner или Ink: нарратор работает в нодовом визуальном редакторе, интеграция в движок стандартная", s: { dialogue_script: 2, data_mgmt: 1, tooling: 1 } },
+      { k: "C", t: "затрудняюсь ответить", s: { dialogue_script: 0, data_mgmt: 0, tooling: 0 } },
+      { k: "D", t: "вынести только тексты в локализационный файл - нарратор правит строки, условия остаются в коде", s: { dialogue_script: 0, data_mgmt: 0, tooling: -1 } }
+    ]
+  },
+  {
+    id: "T2", cat: "технические навыки",
+    text: "флаги выбора «пропадают» после перезагрузки сохранения. воспроизводится в 30% случаев, условие неизвестно. дедлайн через неделю",
+    opts: [
+      { k: "A", t: "единый менеджер состояния: все модули регистрируют данные централизованно > один файл с версионированием", s: { save_load: 2, data_mgmt: 2, gameplay_logic: 1 } },
+      { k: "B", t: "логирование каждого чтения/записи флагов с timestamp и стеком вызовов: сначала понять причину, потом чинить", s: { save_load: 1, data_mgmt: 1, gameplay_logic: 2 } },
+      { k: "C", t: "затрудняюсь ответить", s: { save_load: 0, data_mgmt: 0, gameplay_logic: 0 } },
+      { k: "D", t: "дублировать критические флаги в двух местах с валидацией при загрузке - быстрый патч до нормальной переработки", s: { save_load: 1, data_mgmt: 0, gameplay_logic: 0 } }
+    ]
+  },
+  {
+    id: "T3", cat: "технические навыки",
+    text: "балансировщик тратит 20 минут на цикл: изменить > перекомпилировать > проверить. 80% итераций - правка числовых параметров",
+    opts: [
+      { k: "A", t: "ScriptableObjects или JSON с горячей перезагрузкой: изменение применяется без перезапуска, в live-режиме", s: { tooling: 2, data_mgmt: 2, gameplay_logic: 1 } },
+      { k: "B", t: "конфигурационный файл, читаемый при старте без компиляции - перезапуск нужен, но занимает секунды", s: { tooling: 1, data_mgmt: 1, gameplay_logic: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { tooling: 0, data_mgmt: 0, gameplay_logic: 0 } },
+      { k: "D", t: "Google Sheets + API-импорт: балансировщик правит онлайн, данные подтягиваются при сборке", s: { tooling: 1, data_mgmt: 2, gameplay_logic: 0 } }
+    ]
+  },
+  {
+    id: "T4", cat: "технические навыки",
+    text: "игра выходит на 7 языков. переводчики работают в word-файлах, которые вручную вставляются в движок. релиз через 2 месяца, количество текстовых багов растёт",
+    opts: [
+      { k: "A", t: "CSV/JSON-мастер-файл как единственный источник правды: переводчики работают в нём, импорт полностью автоматический", s: { tooling: 2, data_mgmt: 2, dialogue_script: 1 } },
+      { k: "B", t: "локализационная платформа (Lokalise, POEditor): переводчики работают онлайн, разработчики экспортируют готовые файлы", s: { tooling: 2, data_mgmt: 2, dialogue_script: 1 } },
+      { k: "C", t: "затрудняюсь ответить", s: { tooling: 0, data_mgmt: 0, dialogue_script: 0 } },
+      { k: "D", t: "заморозить все тексты за 6 недель до релиза - переводчики работают со стабильной базой без изменений", s: { tooling: -1, data_mgmt: 0, dialogue_script: -1 } }
+    ]
+  },
+
+  // аудио
+  {
+    id: "A1", cat: "аудио",
+    text: "нужна адаптивная музыка: мирная > напряжённая > боевая. FMOD/Wwise недоступны. бюджет - стандартные инструменты движка",
+    opts: [
+      { k: "A", t: "3 слоя одного трека (мелодия, ритм, перкуссия) + микширование через параметры состояния в движке", s: { music: 2, emotional_score: 2, sfx: 1 } },
+      { k: "B", t: "горизонтальный ре-секвенсинг: короткие фразы переставляются по состоянию - сложнее в реализации, но живее на слух", s: { music: 2, emotional_score: 1, sfx: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { music: 0, emotional_score: 0, sfx: 0 } },
+      { k: "D", t: "отдельные треки на каждое состояние с кроссфейдом 2-3 секунды по триггеру", s: { music: 0, emotional_score: 0, sfx: 0 } }
+    ]
+  },
+  {
+    id: "A2", cat: "аудио",
+    text: "катсцена предательства - самый эмоциональный момент игры. нет бюджета на оркестр. библиотечный саундтрек есть, но «звучит как у всех»",
+    opts: [
+      { k: "A", t: "лейтмотив союзника (уже знакомый игроку) в искажённом, замедленном варианте - узнавание бьёт сильнее новой темы", s: { music: 2, emotional_score: 2, sfx: 0 } },
+      { k: "B", t: "тишина, затем одиночный инструмент: пространство для эмоции важнее насыщенности", s: { music: 2, emotional_score: 2, sfx: 1 } },
+      { k: "C", t: "затрудняюсь ответить", s: { music: 0, emotional_score: 0, sfx: 0 } },
+      { k: "D", t: "самый масштабный трек из библиотеки на полную громкость: важность момента требует сильного звука", s: { music: 0, emotional_score: -2, sfx: 0 } }
+    ]
+  },
+  {
+    id: "A3", cat: "аудио",
+    text: "50+ предметов, 10+ типов взаимодействий. тест: «не понимаю, сработало ли». уникальный звук на каждое действие нереалистичен по бюджету",
+    opts: [
+      { k: "A", t: "5-7 базовых ядер + вариации через питч/фильтры/слои - контекст определяет финальное звучание", s: { sfx: 2, ui_ux: 2, data_mgmt: 1 } },
+      { k: "B", t: "приоритизация: уникальные звуки для критически важных действий, общий тихий фидбек для остального", s: { sfx: 1, ui_ux: 1, data_mgmt: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { sfx: 0, ui_ux: 0, data_mgmt: 0 } },
+      { k: "D", t: "визуальный фидбек (анимация, частицы) там, где SFX-бюджет исчерпан", s: { sfx: -1, ui_ux: 1, data_mgmt: 0 } }
+    ]
+  },
+  {
+    id: "A4", cat: "аудио",
+    text: "хоррор-сегмент. вы хотите использовать музыку для нагнетания атмосферы. арт-директор настаивает на полной тишине: «звук разрушает ощущение одиночества». ресурсов на спор мало",
+    opts: [
+      { k: "A", t: "диегетический звук вместо саундтрека: скрипы, дыхание, шаги - атмосфера без «музыкального» маркера", s: { music: 2, emotional_score: 2, sfx: 2 } },
+      { k: "B", t: "drone-амбиент на грани слышимости: присутствует, но не воспринимается как «музыка»", s: { music: 1, emotional_score: 1, sfx: 0 } },
+      { k: "C", t: "затрудняюсь ответить", s: { music: 0, emotional_score: 0, sfx: 0 } },
+      { k: "D", t: "реализовать версию арт-директора и измерить реакцию на тесте - данные разрешат спор эффективнее аргументов", s: { music: 1, emotional_score: 1, sfx: 0 } }
+    ]
+  },
+
+  // cофт-скиллы
+  {
+    id: "S1", cat: "cофт-скиллы",
+    text: "2 недели до демо. в задачах: 20 диалогов, 5 квестов, 10 предметов. половина команды в перегрузе, половина ждёт задач",
+    opts: [
+      { k: "A", t: "аудит задач: разбить на «обязательно для демо» и «желательно». перебросить свободный ресурс на бутылочное горлышко", s: { content_volume: 2, comm: 2, adaptability: 2 } },
+      { k: "B", t: "микро-итерации + ежедневные 15-минутные чекпоинты для синхронизации состояния и блокеров", s: { content_volume: 1, comm: 2, adaptability: 1 } },
+      { k: "C", t: "затрудняюсь ответить", s: { content_volume: 0, comm: 0, adaptability: 0 } },
+      { k: "D", t: "поручить всё одному надёжному специалисту - сохраняет консистентность и убирает координационные издержки", s: { content_volume: -1, comm: -1, adaptability: -1 } }
+    ]
+  },
+  {
+    id: "S2", cat: "софт-скиллы",
+    text: "50+ флагов выбора. баги: «Выбрал А, игра реагирует как на Б». воспроизводится нестабильно. единого источника правды по флагам нет",
+    opts: [
+      { k: "A", t: "карта флагов в Sheets: [кто ставит], [кто читает], [тест-кейс]. обновляется при каждом изменении, не раз в спринт", s: { branch_tracking: 2, data_mgmt: 2, comm: 2 } },
+      { k: "B", t: "авто-тесты на критические ветки флагов: покрытие важнее документации, ошибки ловятся до мержа", s: { branch_tracking: 2, data_mgmt: 1, comm: 1 } },
+      { k: "C", t: "затрудняюсь ответить", s: { branch_tracking: 0, data_mgmt: 0, comm: 0 } },
+      { k: "D", t: "обязательный code review для любого изменения флагов - ошибки поймают на этапе PR", s: { branch_tracking: 1, data_mgmt: 0, comm: -1 } }
+    ]
+  },
+  {
+    id: "S3", cat: "софт-скиллы",
+    text: "ключевая механика сломана за 3 дня до показа инвестору. быстрый фикс затронет 4 смежные системы. команда узнала об этом час назад",
+    opts: [
+      { k: "A", t: "30-минутный аварийный митинг: границы изменений, зоны ответственности, чекпоинт через 4 часа", s: { adaptability: 2, comm: 2, content_volume: 1 } },
+      { k: "B", t: "изолировать сломанную механику на время показа - скрыть или упростить, починить после инвестора", s: { adaptability: 1, comm: 1, content_volume: 2 } },
+      { k: "C", t: "затрудняюсь ответить", s: { adaptability: 0, comm: 0, content_volume: 0 } },
+      { k: "D", t: "отдать задачу лучшему специалисту единолично - координация сейчас только замедляет", s: { adaptability: -1, comm: -2, content_volume: 0 } }
+    ]
+  },
+  {
+    id: "S4", cat: "софт-скиллы",
+    text: "нарративный дизайнер хочет затяжную прощальную сцену (5 минут). геймплей-дизайнер убеждён, что темп сломается. оба приводят данные в поддержку своей позиции. вы - ведущий",
+    opts: [
+      { k: "A", t: "прототип обеих версий на ограниченной фокус-группе - данные разрешают спор объективнее авторитетов", s: { adaptability: 2, comm: 2, content_volume: 1 } },
+      { k: "B", t: "дефолтная версия 2-3 минуты + опция «пропустить» для тех, кто хочет быстрее", s: { adaptability: 1, comm: 1, content_volume: 1 } },
+      { k: "C", t: "затрудняюсь ответить", s: { adaptability: 0, comm: 0, content_volume: 0 } },
+      { k: "D", t: "поддержать нарратора: финальные сцены - визитная карточка игры, темп можно исправить окружающим контентом", s: { adaptability: -1, comm: -1, content_volume: 0 } }
+    ]
+  }
+];
+
+// MAXIMUM
+function computeMaxPossible(qs) {
+  const maxPossible = {};
+  qs.forEach(q => {
+    const qMax = {};
+    q.opts.forEach(o => {
+      Object.entries(o.s).forEach(([k, v]) => {
+        if (qMax[k] === undefined || v > qMax[k]) qMax[k] = v;
+      });
+    });
+    Object.entries(qMax).forEach(([k, v]) => {
+      if (v > 0) maxPossible[k] = (maxPossible[k] || 0) + v;
+    });
+  });
+  return maxPossible;
+}
+
+// NORMALIZATION
+function normalize(rawScores, maxPossible) {
+  const out = {};
+  Object.entries(rawScores).forEach(([k, v]) => {
+    const max = maxPossible[k] || 1;
+    out[k] = Math.round(Math.max(0, Math.min(10, (v / max) * 10)));
+  });
+  return out;
+}
+
+// DEFAULT
+const ALL_KEYS = [
+  "worldbuilding","env_story","pacing","puzzle","dialogue",
+  "progression","economy","inventory","combat","choice",
+  "char_art","env_art","ui_ux","portrait","animation",
+  "dialogue_script","gameplay_logic","data_mgmt","save_load","tooling",
+  "music","emotional_score","sfx",
+  "content_volume","branch_tracking","comm","adaptability"
+];
+
+function emptyScores() {
+  return Object.fromEntries(ALL_KEYS.map(k => [k, 0]));
+}
+
+function shuffle(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function prepareOptions(opts) {
+  const unsure = opts.find(o => o.t.startsWith('затрудняюсь'));
+  const others = opts.filter(o => !o.t.startsWith('затрудняюсь'));
+  return [...shuffle(others), ...(unsure ? [unsure] : [])];
+}
+
+// RENDER
+const form = document.getElementById('quizForm');
+let currentCat = '';
+questions.forEach(q => {
+  if (q.cat !== currentCat) {
+    currentCat = q.cat;
+    const h = document.createElement('h3');
+    h.className = 'cat-title';
+    h.textContent = currentCat;
+    form.appendChild(h);
+  }
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="q-id">вопрос ${q.id}</div>
+    <strong>${q.text}</strong>
+    <div class="options">
+      ${prepareOptions(q.opts).map(o =>
+        `<label class="option">
+          <input type="radio" name="${q.id}" value="${o.k}">
+          <span>${o.t}</span>
+        </label>`
+      ).join('')}
+    </div>
+    <textarea id="txt_${q.id}" placeholder="комментарий к ответу (необязателен)..."></textarea>`;
+  form.appendChild(card);
+});
+
+// DOWNLOAD
+function generateAndDownload() {
+  const name = document.getElementById('empName').value.trim();
+  if (!name) { alert('введите имя сотрудника'); return; }
+
+  const rawScores = emptyScores();
+  const answers = [];
+
+  for (const q of questions) {
+    const selected = form.querySelector(`input[name="${q.id}"]:checked`);
+    if (!selected) { alert(`пожалуйста, выберите вариант для вопроса ${q.id}`); return; }
+    const opt = q.opts.find(o => o.k === selected.value);
+    Object.entries(opt.s).forEach(([k, v]) => rawScores[k] += v);
+    answers.push({ q_id: q.id, selected: opt.k, text_response: document.getElementById(`txt_${q.id}`).value });
+  }
+
+  const maxPossible = computeMaxPossible(questions);
+  const scores = normalize(rawScores, maxPossible);
+
+  const result = {
+    employee: name,
+    date: new Date().toISOString(),
+    scores,
+    raw_scores: rawScores,
+    max_possible: maxPossible,
+    answers
+  };
+
+  const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(result, null, 2))));
+  const a = Object.assign(document.createElement('a'), {
+    href: URL.createObjectURL(new Blob([b64], { type: 'text/plain' })),
+    download: `test_${name.replace(/\s+/g, '_')}_${Date.now()}.requit`
+  });
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+</script>
+</body>
+</html>
