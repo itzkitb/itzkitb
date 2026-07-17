@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avito OAuth Callback</title>
+    <title>SalesAssistantBror OAuth Callback</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,34 +43,17 @@
         .success { color: var(--success-color); }
         .info { color: var(--main-color); }
         .param { color: var(--accent-color); }
-        
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 15px;
-            background-color: var(--accent-color);
-            animation: blink 1s steps(1) infinite;
-            vertical-align: middle;
-            margin-left: 4px;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-    
     </style>
 </head>
 <body>
 
     <div class="terminal-window">
         <div class="header">
-            Tupid.lol ▹ Avito OAuth Callback Handler<br>
-            Copyright (C) 2026 SillyApps (aka. ItzKITb)
+            SalesAssistantBror OAuth Callback Handler<br>
+            Copyright (C) 2026 SalesAssistantBror (by ItzKITb)
         </div>
 
         <div id="output"></div>
-        <div class="log-line"><span class="prompt">sillydev@TupidLol:~/oauth$</span> <span class="cursor"></span></div>
     </div>
 
     <script>
@@ -96,14 +79,8 @@
                 printLine("• No URL parameters detected", "info");
                 printLine("◇ Endpoint is active and valid", "success");
             } else {
-                printLine("• Detected authorization response:", "info");
-                for (const [key, value] of Object.entries(params)) {
-                    const displayValue = key.toLowerCase().includes('token') || key.toLowerCase().includes('code') 
-                        ? value.substring(0, 10) + '...' + value.substring(value.length - 4)
-                        : value;
-                    printLine(`▹ ${key}: ${displayValue}`, "param");
-                }
-                printLine("◇ Callback processed successfully.", "success");
+                printLine("• Detected authorization response", "info");
+                printLine("◇ Callback processed successfully", "success");
             }
 
             printLine("▲ You may close this window", "info");
