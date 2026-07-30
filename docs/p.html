@@ -16,6 +16,8 @@
             --text-color: #d1d1d1;
             --accent-color: #99c9a5;
             --container-bg: #2f3d33;
+			--shadow: rgba(33, 36, 34, 0.4);
+			--tr-even: rgba(92, 255, 146, 0.05);
             --border-width: 2px;
             --spacing-unit: 20px;
         }
@@ -156,7 +158,7 @@
         }
 
         .editor-textarea:focus {
-            box-shadow: 0 0 8px rgba(255, 143, 92, 0.4);
+            box-shadow: 0 0 8px var(--shadow);
         }
 
         /* ><> util */
@@ -281,7 +283,7 @@
         }
 
         .markdown-body tr:nth-child(even) {
-            background-color: rgba(255, 143, 92, 0.05);
+            background-color: var(--tr-even);
         }
 
         /* ><> lightbox */
@@ -291,7 +293,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(26, 14, 9, 0.95);
+            background: var(--bg-color);
             display: none;
             justify-content: center;
             align-items: center;
