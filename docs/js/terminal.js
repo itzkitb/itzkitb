@@ -3,7 +3,7 @@ const hiddenInput = document.getElementById('hidden-input');
 const beforeCursor = document.getElementById('before-cursor');
 const afterCursor = document.getElementById('after-cursor');
 const cursor = document.getElementById('cursor');
-const promptText = "sillydev@TupidLol:~$";
+const promptText = "sillydev@tupid:~$";
 
 let cmdHistory = [];
 let historyIndex = -1;
@@ -15,7 +15,7 @@ function updateDisplay() {
     const start = hiddenInput.selectionStart;
 
     beforeCursor.textContent = val.substring(0, start);
-            
+
     if (start < val.length) {
         cursor.textContent = val.substring(start, start + 1);
         afterCursor.textContent = val.substring(start + 1);
@@ -26,14 +26,14 @@ function updateDisplay() {
 }
 
 hiddenInput.addEventListener('input', updateDisplay);
-        
+
 hiddenInput.addEventListener('keyup', (e) => {
     if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)) {
         updateDisplay();
     }
 });
 
-hiddenInput.addEventListener('keydown', function(e) {
+hiddenInput.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowUp') {
         e.preventDefault();
         if (cmdHistory.length > 0) {
@@ -61,14 +61,14 @@ hiddenInput.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
         const command = hiddenInput.value;
         const trimmedCmd = command.trim();
-                
+
         if (trimmedCmd) {
             cmdHistory.push(command);
             historyIndex = -1;
         }
 
         const line = document.createElement('div');
-        line.innerHTML = `<span style="color: #ff8f5c">${promptText}</span> ${command}`;
+        line.innerHTML = `<span style="color: var(--accent-color)">${promptText}</span> ${command}`;
         historyContainer.appendChild(line);
 
         handleCommand(trimmedCmd);
@@ -94,20 +94,20 @@ function handleCommand(cmd) {
     const mainCmd = args[0].toLowerCase();
     const isHelp = args.includes('--help');
 
-    switch(mainCmd) {
+    switch (mainCmd) {
         case 'echo':
             if (isHelp) {
-                printToHistory("Usage: echo [text]");
-                printToHistory("Displays the text you typed back to the terminal.");
+                printToHistory("usage: echo [text]");
+                printToHistory("displays the text you typed back to the terminal");
             } else {
                 printToHistory(args.slice(1).join(' '));
             }
             break;
-                
+
         case 'clear':
             if (isHelp) {
-                printToHistory("Usage: clear");
-                printToHistory("Clears the terminal screen of all previous output.");
+                printToHistory("usage: clear");
+                printToHistory("clears the terminal screen of all previous output");
             } else {
                 historyContainer.innerHTML = '';
             }
@@ -115,28 +115,27 @@ function handleCommand(cmd) {
 
         case 'help':
             if (isHelp) {
-                printToHistory("Usage: help");
-                printToHistory("Wait... you are asking for help about the help command?");
+                printToHistory("usage: help");
+                printToHistory("wait... you are asking for help about the help command?");
             } else {
-                printToHistory("Tupid.lol Website Console, version 100-release (x86_64-pc-linux-gnu)");
-                printToHistory("The commands shown below are defined within the shell.");
-                printToHistory("To see help for the function \"name\", type \"name --help\".");
+                printToHistory("tupid console, version 1.2.0-main (x86_64-pc-linux-gnu)");
+                printToHistory("to see help for the function \"name\", type \"name --help\"");
                 printToHistory(" ");
-                printToHistory("An asterisk (*) next to a command name indicates that the command is disabled.");
+                printToHistory("an asterisk (*) next to a command name indicates that the command is disabled");
                 printToHistory(" ");
-                printToHistory(" echo [argument ...]");
-                printToHistory(" clear");
-                printToHistory(" help [sample ...]");
-                printToHistory(" whoami [argument ...]");
-                printToHistory(" ls [argument ...]");
-                printToHistory(" title [argument ...]");
+                printToHistory("  echo [argument ...]");
+                printToHistory("  clear");
+                printToHistory("  help [sample ...]");
+                printToHistory("  whoami [argument ...]");
+                printToHistory("  ls [argument ...]");
+                printToHistory("  title [argument ...]");
             }
             break;
 
         case 'whoami':
             if (isHelp) {
-                printToHistory("Usage: whoami");
-                printToHistory("Prints the current user identity.");
+                printToHistory("usage: whoami");
+                printToHistory("prints the current user identity");
             } else {
                 printToHistory("sillydev");
             }
@@ -144,8 +143,8 @@ function handleCommand(cmd) {
 
         case 'ls':
             if (isHelp) {
-                printToHistory("Usage: ls");
-                printToHistory("Lists files in the current directory.");
+                printToHistory("usage: ls");
+                printToHistory("lists files in the current directory");
             } else {
                 printToHistory("js  huh.txt  index.html");
             }
@@ -153,19 +152,19 @@ function handleCommand(cmd) {
 
         case 'title':
             if (isHelp) {
-                printToHistory("Usage: title [text]");
-                printToHistory("Changes the page title to the specified text.");
+                printToHistory("usage: title [text]");
+                printToHistory("changes the page title to the specified text");
             } else {
                 const newTitle = args.slice(1).join(' ');
-                document.title = newTitle || 'Terminal';
-                printToHistory(`Page title changed to: "${document.title}"`);
+                document.title = newTitle || 'tupid';
+                printToHistory(`page title changed to: "${document.title}"`);
             }
             break;
-                
+
         case 'te9ds0lo':
             printToHistory("SXQncyB3YXRjaGluZyBtZS4gSXQncyBuZWFyYnkuIFlvdSBrbm93IHdoZXJlIHRvIGZpbmQgdGhlIGNvZGUuIElmIHlvdSBmb3Jnb3QsIHRoZSBjb21iaW5hdGlvbiBpcyAwLTUtNi0yMi0xLTEzLTE1LTEwLTE1Lg==");
             break;
-                
+
         default:
             printToHistory(`${mainCmd}: command not found`, true);
     }

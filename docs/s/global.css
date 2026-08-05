@@ -1,0 +1,154 @@
+/* ><> haha im fish */
+
+:root {
+    --bg-color: #212422;
+    --text-color: #d1d1d1;
+    --accent-color: #99c9a5;
+    --container-bg: #2f3d33;
+    --error-color: #c99999;
+    --shadow: rgba(33, 36, 34, 0.4);
+    --tr-even: rgba(92, 255, 146, 0.05);
+    --border-width: 2px;
+    --spacing-unit: 20px;
+}
+
+* {
+    box-sizing: border-box;
+    scrollbar-width: auto;
+    scrollbar-color: var(--container-bg) var(--accent-color);
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+body {
+    font-family: "Source Code Pro", monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--accent-color);
+}
+
+/* ><> scrollbar */
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--container-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--container-bg);
+    border-radius: 0px;
+    border: 5px solid var(--container-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--container-bg);
+}
+
+/* ><> header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-unit);
+    border-bottom: var(--border-width) solid var(--accent-color);
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.brand:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    background: transparent;
+    color: var(--accent-color);
+    border: var(--border-width) solid var(--accent-color);
+    padding: 10px 20px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    margin-left: 10px;
+}
+
+.btn:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-secondary {
+    border-color: var(--text-color);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* ><> toast */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-color);
+    color: var(--bg-color);
+    padding: 12px 24px;
+    border: var(--border-width) solid var(--accent-color);
+    font-weight: bold;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    bottom: 40px;
+}
+
+/* ><> main */
+main {
+    flex: 1;
+    padding: var(--spacing-unit);
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    border: var(--border-width) solid var(--accent-color);
+    padding: 40px;
+}
