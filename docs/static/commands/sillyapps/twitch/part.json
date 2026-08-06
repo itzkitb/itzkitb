@@ -1,0 +1,17 @@
+{
+  "name": "part twitch channel",
+  "info": "exits the channel",
+  "usage": "part <channel>",
+  "description": "",
+  "examples": [
+    {
+      "user": "_part testing123",
+      "bot": "✅ | Successfully parted channel #testing123"
+    }
+  ],
+  "aliases": [ "part", "pc", "leave" ],
+  "cooldown": 1,
+  "requirementRoles": [ "su:twitch:part" ],
+  "platformCompatibilityType": "whitelist",
+  "platformCompatibilityList": [ "twitch" ]
+}

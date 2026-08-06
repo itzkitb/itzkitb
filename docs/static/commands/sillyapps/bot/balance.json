@@ -1,0 +1,21 @@
+{
+  "name": "balance",
+  "info": "view your own or someone else's balance",
+  "usage": "balance [top|<user>]",
+  "description": "",
+  "examples": [
+    {
+      "user": "_balance",
+      "bot": "🍔 | Your balance: 1249.64 ▹ You are in 2 place in the top"
+    },
+    {
+      "user": "_balance top",
+      "bot": "📊 | 🥇 𝗶𝗴𝘄𝗲𝘀𝘁𝘆𝗶 (1785.57) ▹ 🥈 𝗶𝘁𝘇𝗸𝗶𝘁𝗯 (1249.64) ▹ 🥉 𝘁𝗵𝗲_𝗮𝘀𝗱𝗳𝗴𝟔 (870.17) ▹ Top 100: https://tupid.lol/p?i=L2306"
+    }
+  ],
+  "aliases": [ "balance", "bal" ],
+  "cooldown": 5,
+  "requirementRoles": [ ],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": [ ]
+}

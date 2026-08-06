@@ -1,0 +1,67 @@
+.sidebar-box {
+    background: var(--tdark);
+    backdrop-filter: blur(10px);
+    max-width: 1200px;
+    margin: 15px auto;
+    box-sizing: border-box;
+}
+
+.card-box {
+    background: rgba(0, 0, 0, 0.35);
+    padding: 12px 16px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.status-ok {
+    background: var(--bright);
+    color: var(--dark);
+}
+
+.status-fail {
+    background: #ff6b6b;
+    color: #ffffff;
+}
+
+.stat-value {
+    font-family: ui-monospace, monospace;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--bright);
+    margin-top: 4px;
+}
+
+.stat-label {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+.grid-responsive {
+    width: 100%;
+}
+
+.grid-responsive > * {
+    min-width: 0 !important; /* Не даёт блокам удерживать ширину canvas */
+}
+
+.chart-container {
+    position: relative;
+    height: 180px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+    .grid-responsive {
+        flex-direction: column !important;
+    }
+}

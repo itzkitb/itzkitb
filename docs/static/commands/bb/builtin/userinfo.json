@@ -1,0 +1,17 @@
+{
+  "name": "user info",
+  "info": "get user information by nickname",
+  "usage": "ui <username>",
+  "description": "",
+  "examples": [
+    {
+      "user": "_userinfo pwgood",
+      "bot": "📋 | Username: pwgood, ID: 090e795c-4d37-4844-9702-466b87edc1a1"
+    }
+  ],
+  "aliases": [ "userinfo", "ui", "whois" ],
+  "cooldown": 10,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

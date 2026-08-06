@@ -1,0 +1,17 @@
+{
+  "name": "bot currency",
+  "info": "check today's report on the sandwich exchange rate",
+  "usage": "bc",
+  "description": "",
+  "examples": [
+    {
+      "user": "_bc",
+      "bot": "🏦 | Bot currency ▹ Total Butters: 7256.51 ▹ Central Bank Reserves: $1000 ▹ Butter to USD exchange rate: 0.13781 BTR ▹ Total users: 18 ▹ Transactions today: 11 ▹ Total transactions today: 289"
+    }
+  ],
+  "aliases": [ "botcurrency", "bc" ],
+  "cooldown": 10,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

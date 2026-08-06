@@ -1,0 +1,21 @@
+{
+  "name": "java script",
+  "info": "a v8 engine right in the chat",
+  "usage": "js <code> | <url>",
+  "description": "> more information about v8 is available [here](https://mathjs.org/docs/index.html)",
+  "examples": [
+    {
+      "user": "_js Math.min() > Math.max()",
+      "bot": "📟 | true"
+    },
+    {
+      "user": "_js https://tupid.lol/p?i=zKMmI",
+      "bot": "📟 | true"
+    }
+  ],
+  "aliases": [ "js", "eval", "javascript" ],
+  "cooldown": 5,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

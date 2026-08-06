@@ -1,0 +1,21 @@
+{
+  "name": "math",
+  "info": "is someone still calculating it in their head? lol",
+  "usage": "math <expression> [fixed:<<true|yes|on|1>|<false|no|off|0>> precision:<number>]",
+  "description": "### basic math functions \n\n> need something else? look [here](https://mathjs.org/docs/index.html) \n\n#### arithmetic and rounding\n* `add(a, b)` - addition of numbers matrices or units\n* `subtract(a, b)` - subtraction\n* `multiply(a, b)` - multiplication\n* `divide(a, b)` - division\n* `pow(x, y)` - power x to y\n* `sqrt(x)` - square root supports negative numbers\n* `mod(a, b)` - modulus remainder of division\n* `round(x, n)` - round x to n decimals\n* `ceil(x)` / `floor(x)` - round up / down to nearest integer\n\n#### trigonometry and exponents\n* `sin(x)` / `cos(x)` / `tan(x)` - sine cosine and tangent in radians\n* `asin(x)` / `acos(x)` / `atan(x)` - inverse trigonometric functions\n* `log(x, base)` - logarithm of x with custom base default is natural\n* `log10(x)` - base 10 logarithm\n\n#### statistics and combinatorics\n* `sum(a, b, c...)` - sum of all arguments or array elements\n* `mean(array)` - arithmetic mean of array\n* `std(array)` - standard deviation\n* `min(array)` / `max(array)` - minimum and maximum values\n* `factorial(n)` - factorial of n\n* `combinations(n, k)` - combinations of n choose k\n* `permutations(n, k)` - permutations of n choose k\n* `random(min, max)` - random number in range\n\n#### algebra and parsing\n* `evaluate(expr)` - evaluate an expression string e.g. 2 * (3 + 5)\n* `simplify(expr)` - symbolic simplification e.g. 2x + x to 3 * x\n* `derivative(expr, variable)` - find the derivative of an expression\n\n#### constants\n* `pi` - pi constant 3.14159...\n* `e` - euler number 2.71828...\n* `i` - imaginary unit for complex numbers",
+  "examples": [
+    {
+      "user": "_math 105-5%",
+      "bot": "🧮 | 99.75"
+    },
+    {
+      "user": "_math 10 ft to cm",
+      "bot": "🧮 | 304.8 cm"
+    }
+  ],
+  "aliases": [ "math", "calc", "eval", "evaluate" ],
+  "cooldown": 5,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

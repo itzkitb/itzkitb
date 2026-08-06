@@ -1,0 +1,17 @@
+{
+  "name": "ban phrases manage",
+  "info": "managing the bot's ban phrases",
+  "usage": "bp <set|get|list|test|delete> <global|channel> [category] [pattern]",
+  "description": "",
+  "examples": [
+    {
+      "user": "_bp",
+      "bot": "⚙️ | Usage: banphrases <set|get|list|test|delete> <global|channel> [category] [pattern|hastebin]"
+    }
+  ],
+  "aliases": [ "banphrases", "bp", "banphrase" ],
+  "cooldown": 5,
+  "requirementRoles": [ "su:bb:banphrases" ],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": [ ]
+}

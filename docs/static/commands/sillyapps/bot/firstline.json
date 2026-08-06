@@ -1,0 +1,25 @@
+{
+  "name": "first line",
+  "info": "view one's own or someone else's first message",
+  "usage": "fl [username] [t:g] [c:<channel>]",
+  "description": "",
+  "examples": [
+    {
+      "user": "_fl",
+      "bot": "🗃️ | Your first message in 𝗯𝘂𝘁𝘁𝗲𝗿𝗯𝗿𝗼𝗿 was written 1 mo. 19 d. 3 h. ago: _ping"
+    },
+    {
+      "user": "_fl t:g",
+      "bot": "🗃️ | Your first message was written in 𝗯𝘂𝘁𝘁𝗲𝗿𝗯𝗿𝗼𝗿 1 mo. 19 d. 3 h. ago: _ping"
+    },
+    {
+      "user": "_fl c:itzkitb",
+      "bot": "🗃️ | Your first message in 𝗶𝘁𝘇𝗸𝗶𝘁𝗯 was written 1 mo. 19 d. 3 h. ago: _ping"
+    }
+  ],
+  "aliases": [ "fl", "fm", "firstline", "firstmessage" ],
+  "cooldown": 5,
+  "requirementRoles": [ ],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

@@ -1,0 +1,17 @@
+{
+  "name": "reload bot's module",
+  "info": "reloads the module in the bot, using the latest version of the file",
+  "usage": "rlmod <chat|command> <moduleId>",
+  "description": "",
+  "examples": [
+    {
+      "user": "_reloadmodule command sillyapps:bot",
+      "bot": "✅ | Module reloaded successfully"
+    }
+  ],
+  "aliases": [ "reloadmodule", "rlmod", "reloadmod" ],
+  "cooldown": 0,
+  "requirementRoles": [ "su:bb:modules" ],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

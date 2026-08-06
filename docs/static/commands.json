@@ -1,0 +1,151 @@
+{
+  "categories": [
+    {
+      "title": "twitch",
+      "commands": [
+        {
+          "id": "sillyapps_twitch_auth",
+          "name": "auth"
+        },
+        {
+          "id": "sillyapps_twitch_settings",
+          "name": "twitchset"
+        },
+        {
+          "id": "sillyapps_twitch_setprefix",
+          "name": "setprefix"
+        }
+      ]
+    },
+    {
+      "title": "utils",
+      "commands": [
+        {
+          "id": "sillyapps_bot_ping",
+          "name": "ping"
+        },
+        {
+          "id": "sillyapps_bot_gemini",
+          "name": "gemini"
+        },
+        {
+          "id": "sillyapps_bot_math",
+          "name": "math"
+        },
+        {
+          "id": "sillyapps_bot_remind",
+          "name": "remind"
+        },
+        {
+          "id": "bb_builtin_userinfo",
+          "name": "userinfo"
+        },
+        {
+          "id": "bb_builtin_locale",
+          "name": "locale"
+        }
+      ]
+    },
+    {
+      "title": "economy",
+      "commands": [
+        {
+          "id": "sillyapps_bot_balance",
+          "name": "balance"
+        },
+        {
+          "id": "sillyapps_bot_botcurrency",
+          "name": "botcurrency"
+        },
+        {
+          "id": "sillyapps_bot_periodically_rewards",
+          "name": "hourly"
+        },
+        {
+          "id": "sillyapps_bot_periodically_rewards",
+          "name": "daily"
+        },
+        {
+          "id": "sillyapps_bot_periodically_rewards",
+          "name": "weekly"
+        },
+        {
+          "id": "sillyapps_bot_periodically_rewards",
+          "name": "monthly"
+        }
+      ]
+    },
+    {
+      "title": "logs",
+      "commands": [
+        {
+          "id": "sillyapps_bot_chatlines",
+          "name": "chatlines"
+        },
+        {
+          "id": "sillyapps_bot_firstline",
+          "name": "firstline"
+        },
+        {
+          "id": "sillyapps_bot_lastline",
+          "name": "lastline"
+        }
+      ]
+    },
+    {
+      "title": "fun",
+      "commands": [
+        {
+          "id": "sillyapps_bot_frogs",
+          "name": "frogs"
+        }
+      ]
+    },
+    {
+      "title": "development",
+      "commands": [
+        {
+          "id": "sillyapps_bot_js",
+          "name": "js"
+        }
+      ]
+    },
+    {
+      "title": "bot moderation",
+      "commands": [
+        {
+          "id": "sillyapps_twitch_join",
+          "name": "join"
+        },
+        {
+          "id": "sillyapps_twitch_part",
+          "name": "part"
+        },
+        {
+          "id": "sillyapps_twitch_addchannel",
+          "name": "addchannel"
+        },
+        {
+          "id": "sillyapps_twitch_deletechannel",
+          "name": "deletechannel"
+        },
+        {
+          "id": "sillyapps_bot_debug",
+          "name": "debug"
+        },
+        {
+          "id": "bb_builtin_banphrases",
+          "name": "banphrases"
+        },
+        {
+          "id": "bb_builtin_block",
+          "name": "block"
+        },
+        {
+          "id": "bb_builtin_reloadmodule",
+          "name": "reloadmodule"
+        }
+      ]
+    }
+  ]
+}

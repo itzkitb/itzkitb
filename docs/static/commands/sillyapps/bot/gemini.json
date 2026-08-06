@@ -1,0 +1,25 @@
+{
+  "name": "gemini",
+  "info": "a smart (well, not really) ai assistant right in the chat",
+  "usage": "gemini [[action:]clear|models|history] | [model:<name>] [history:ignore] <query>",
+  "description": "### bot access\ngemini has access to bot commands, so it can, for example, calculate large numbers via javascript. commands will be executed on your behalf!\n\n### limitations\na user has 100,000 internal tokens per day. once these are used up, they will need to wait a day for them to regenerate. in the future, there will be a command to view how many tokens a user has used",
+  "examples": [
+    {
+      "user": "_gemini Hello! Who are you?",
+      "bot": "🤖 | I'm butterbror, your chatbot assistant!"
+    },
+    {
+      "user": "_gemini clear",
+      "bot": "🧹 | Dialogue cleared!"
+    },
+    {
+      "user": "_gemini models",
+      "bot": "🤖 | Available models: gemini-3.5-flash-lite, gemini-3.1-flash-lite, gemini-3.6-flash, gemini-3.5-flash, gemini-3-flash, gemini-2.5-flash-lite, gemini-2.5-flash"
+    }
+  ],
+  "aliases": [ "gpt", "gem", "gemini" ],
+  "cooldown": 10,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

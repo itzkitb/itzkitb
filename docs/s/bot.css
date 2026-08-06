@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap');
+
+:root {
+    --bright: #A0FFA0;
+    --dark: #162316;
+    --tdark: #A0FFA010;
+    --wip-y: #ffdc6b40;
+    --wip-b: #232016;
+}
+
+::selection {
+    background: var(--bright);
+    color: var(--dark);
+}
+
+::-moz-selection {
+    background: var(--bright);
+    color: var(--dark);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bright);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #80df80;
+}
+
+.text {
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.button {
+    color: var(--dark);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    background: var(--bright);
+    border: none;
+    padding: 10px;
+    margin-right: 10px;
+    font-size: max(min(2.2vw, 20px), 10px);
+}
+
+.row {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    background: var(--tdark);
+    border: none;
+    margin-bottom: 5px;
+    font-size: max(min(2.2vw, 20px), 10px);
+}
+
+.cell {
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.bold-text {
+    color: #ffffff !important;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.title {
+    color: #ffffff00;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    background: linear-gradient(0deg,rgb(255, 255, 255) 0%, var(--bright) 100%);
+    background-clip: text;
+}
+
+.blend-overlay {
+    mix-blend-mode: overlay;
+}
+
+.blend-color {
+    mix-blend-mode: color;
+}
+
+.fat-ass {
+    pointer-events: none;
+}
+
+.link {
+    color: var(--bright);
+    text-decoration: none;
+}
+
+.wip {
+    font-family: ui-monospace, 'Cascadia Code', 'Segoe UI Monospace', monospace;
+    font-weight: 800;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background-image: linear-gradient( 135deg, var(--wip-y) 25%, var(--wip-b) 25%, var(--wip-b) 50%, var(--wip-y) 50%, var(--wip-y) 75%, var(--wip-b) 75%, var(--wip-b) );
+    background-size: 10ch 10ch;
+    animation: wip-tape-solid 10s linear infinite;
+    padding: 5px 0;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes wip-tape-solid {
+    from {
+        transform: translateX(5ch) translateY(10px);
+    }
+
+    to {
+        transform: translateX(25ch) translateY(10px);
+    }
+}

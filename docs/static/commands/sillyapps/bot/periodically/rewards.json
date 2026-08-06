@@ -1,0 +1,29 @@
+{
+  "name": "rewards",
+  "info": "rewards for... just because",
+  "usage": "hourly",
+  "description": "",
+  "examples": [
+    {
+      "user": "_h",
+      "bot": "🪎 | You have received the reward of the hour ▹ 1 BTR"
+    },
+    {
+      "user": "_d",
+      "bot": "🪎 | You have received the reward of the day ▹ 12 BTR"
+    },
+    {
+      "user": "_w",
+      "bot": "🪎 | You have received the reward of the week ▹ 56 BTR"
+    },
+    {
+      "user": "_m",
+      "bot": "🪎 | You have received the reward of the month ▹ 180 BTR"
+    }
+  ],
+  "aliases": [ "hourly", "h", "daily", "d", "weekly", "w", "monthly", "m" ],
+  "cooldown": 2,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

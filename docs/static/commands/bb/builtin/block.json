@@ -1,0 +1,29 @@
+{
+  "name": "block command",
+  "info": "blocking/unblocking a user/command in the system",
+  "usage": "ban <user|global|platform|chat> [data]",
+  "description": "",
+  "examples": [
+    {
+      "user": "_block user pwgood global Test",
+      "bot": "🔐 | User 'pwgood' blocked (scope: global)"
+    },
+    {
+      "user": "_block user pwgood global",
+      "bot": "🔓 | User 'pwgood' unblocked (scope: global)"
+    },
+    {
+      "user": "_block global sillyapps:bot:ping",
+      "bot": "🔐 | Command 'sillyapps:bot:ping' blocked globally"
+    },
+    {
+      "user": "_block global sillyapps:bot:ping",
+      "bot": "🔓 | Command 'sillyapps:bot:ping' unblocked globally"
+    }
+  ],
+  "aliases": [ "block", "ban", "unblock", "unban" ],
+  "cooldown": 0,
+  "requirementRoles": [ "su:bb:block" ],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

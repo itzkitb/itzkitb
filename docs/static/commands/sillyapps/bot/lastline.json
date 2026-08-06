@@ -1,0 +1,17 @@
+{
+  "name": "last line",
+  "info": "view one's own or someone else's last message",
+  "usage": "ll [username] [t:g] [c:<channel>]",
+  "description": "",
+  "examples": [
+    {
+      "user": "_ll",
+      "bot": "👆 | Your last message is at the top"
+    }
+  ],
+  "aliases": [ "ll", "lastline" ],
+  "cooldown": 5,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

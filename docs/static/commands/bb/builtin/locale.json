@@ -1,0 +1,25 @@
+{
+  "name": "locale command",
+  "info": "changes the language of the bot's responses",
+  "usage": "locale set <locale> [url] | list | delete <locale> | view <locale> | reload",
+  "description": "",
+  "examples": [
+    {
+      "user": "_locale",
+      "bot": "⚙️ | This command is always in English by default. Usage: locale set <locale> [url] | list | delete <locale> | view <locale> | reload"
+    },
+    {
+      "user": "_locale set ru",
+      "bot": "✨ | Ваш язык установлен на русский"
+    },
+    {
+      "user": "_locale list",
+      "bot": "🌐 | Available Locales (default: EN_US): EN_US (en, english, en-US); RU_RU (ru, russian, ru-RU);"
+    }
+  ],
+  "aliases": [ "locale", "lang", "language" ],
+  "cooldown": 5,
+  "requirementRoles": [ ],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

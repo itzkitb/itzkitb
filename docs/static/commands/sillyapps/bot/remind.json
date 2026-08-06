@@ -1,0 +1,25 @@
+{
+  "name": "remind",
+  "info": "send a reminder to yourself or another user",
+  "usage": "remind [<username> <text> [in:\"<time>\"|on:\"date\"] | me <text> <in:\"<time>\"|on:\"<date>\"> | <list|lists|ls> | <delete|remove|del|rm> <id>]",
+  "description": "### reminder time formats \n\n> specify when to receive a reminder by placing time at the beginning or end of your message \n\n#### relative time (in)\n* `in 15m` / `in 2h 30m` - set a countdown delay using english or russian time units\n* `supported units` - years (y, г), months (mo, мес), weeks (w, нед), days (d, дн), hours (h, ч), minutes (m, мин), seconds (s, сек)\n* `examples` - `in 20m do homework`, `feed cat in 1h 30m`, `in 2 дня call bob` \n\n#### absolute time (on)\n* `on 18:30` - set specific time today (automatically moves to tomorrow if time has already passed)\n* `on 25.12.2026 15:00` - set exact date and time (dots or colons are allowed for time)\n* `date styles` - `dd.mm.yyyy`, `dd.mm.yy`, or full date names like `25 december 2026` / `25 декабря 2026`\n* `examples` - `on 19:00 gym`, `meeting on 15.05.2026 10:30`, `on 31 dec 23:59 happy new year` \n\n#### syntax rules\n* `placement` - place time at the start (`in 5m test`) or at the end (`test in 5m`)\n* `colons` - colon after keyword is optional (`in 10m` or `in: 10m`)\n* `quotes` - optional quotes around time value (`in: \"2h 30m\" take a break`)",
+  "examples": [
+    {
+      "user": "_remind",
+      "bot": "🗓️ | @itzkitb, you can view your reminders by clicking the link ▹ https://tupid.lol/p?i=Qixz6"
+    },
+    {
+      "user": "_remindme in 5m Test",
+      "bot": "✅ | Reminder for @𝗶𝘁𝘇𝗸𝗶𝘁𝗯 successfully created ▹ ID: 1a66a5 ▹ Will trigger in 5 m."
+    },
+    {
+      "user": "_remind devbror Test",
+      "bot": "✅ | Reminder for @𝗱𝗲𝘃𝗯𝗿𝗼𝗿 successfully created ▹ ID: fa00a8"
+    }
+  ],
+  "aliases": [ "remind", "re", "remindme" ],
+  "cooldown": 1,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

@@ -1,0 +1,17 @@
+{
+  "name": "add twitch channel",
+  "info": "add the channel to the list of connected channels",
+  "usage": "addchannel <channel>",
+  "description": "",
+  "examples": [
+    {
+      "user": "_addchannel testing123",
+      "bot": "✅ | Channel #testing123 added to list and connected"
+    }
+  ],
+  "aliases": [ "addchannel", "ac" ],
+  "cooldown": 1,
+  "requirementRoles": [ "su:twitch:addchannel" ],
+  "platformCompatibilityType": "whitelist",
+  "platformCompatibilityList": [ "twitch" ]
+}

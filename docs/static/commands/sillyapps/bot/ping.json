@@ -1,0 +1,17 @@
+{
+  "name": "ping",
+  "info": "check bot status",
+  "usage": "ping",
+  "description": "",
+  "examples": [
+    {
+      "user": "_ping",
+      "bot": "🏓 | Pong! ▹ Core: v0.2.3-main#cbf02b0 ▹ Bot: v1.3.4 ▹ Uptime: 1 d. 6 h. 14 m. ▹ CPU: 10.53% (42.00°C) ▹ Redis: 32 Mb (119935 keys) ▹ Network latency: 44 ms"
+    }
+  ],
+  "aliases": [ "ping", "pong" ],
+  "cooldown": 5,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

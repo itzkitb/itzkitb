@@ -1,0 +1,17 @@
+{
+  "name": "delete twitch channel",
+  "info": "removes the channel from the list of connected channels",
+  "usage": "deletechannel <channel>",
+  "description": "",
+  "examples": [
+    {
+      "user": "_deletechannel testing123",
+      "bot": "✅ | Channel #testing123 deleted from list and parted"
+    }
+  ],
+  "aliases": [ "deletechannel", "dc" ],
+  "cooldown": 1,
+  "requirementRoles": [ "su:twitch:deletechannel" ],
+  "platformCompatibilityType": "whitelist",
+  "platformCompatibilityList": [ "twitch" ]
+}

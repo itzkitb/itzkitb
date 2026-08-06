@@ -1,0 +1,17 @@
+{
+  "name": "join twitch channel",
+  "info": "joins the channel",
+  "usage": "join <channel>",
+  "description": "",
+  "examples": [
+    {
+      "user": "_join testing123",
+      "bot": "✅ | Successfully joined channel #testing123"
+    }
+  ],
+  "aliases": [ "join", "jc" ],
+  "cooldown": 1,
+  "requirementRoles": [ "su:twitch:join" ],
+  "platformCompatibilityType": "whitelist",
+  "platformCompatibilityList": [ "twitch" ]
+}

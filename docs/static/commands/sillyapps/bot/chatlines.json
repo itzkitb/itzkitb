@@ -1,0 +1,29 @@
+{
+  "name": "chat lines",
+  "info": "view the number of lines sent to the chat",
+  "usage": "cl [user] [type:global|t:g] | top [type:global|t:g]",
+  "description": "",
+  "examples": [
+    {
+      "user": "_cl",
+      "bot": "📊 | You sent 181 lines in this chat ▹ You are at 1 place"
+    },
+    {
+      "user": "_cl t:g",
+      "bot": "📊 | You sent 4767 lines globally ▹ You are at 55 place"
+    },
+    {
+      "user": "_cl top",
+      "bot": "📊 | 🥇 𝗶𝘁𝘇𝗸𝗶𝘁𝗯 (183) ▹ 🥈 𝗶𝗴𝘄𝗲𝘀𝘁𝘆𝗶 (11) ▹ 🥉 𝗺𝗶𝗹𝗸𝘀𝗵𝘄𝗶 (8) ▹ Top 100 in this chat: https://tupid.lol/p?i=GObFu"
+    },
+    {
+      "user": "_cl top t:g",
+      "bot": "📊 | 🥇 𝘀𝗽𝗮𝗻𝗶𝘅𝗯𝗼𝘁 (79304) ▹ 🥈 𝘆𝗲𝗳𝘂𝗹𝟑 (30868) ▹ 🥉 𝘀𝘂𝗽𝗶𝗯𝗼𝘁 (23411) ▹ Global Top 100: https://tupid.lol/p?i=FkqFZ"
+    }
+  ],
+  "aliases": [ "chatlines", "clines", "cl", "chatstats", "cs" ],
+  "cooldown": 5,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

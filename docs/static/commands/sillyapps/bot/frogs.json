@@ -1,0 +1,25 @@
+{
+  "name": "frogs!",
+  "info": "а game where you have to collect frogs",
+  "usage": "frog <statistic|s> | <caught|c> | gift <user> <frogs> | top [gifted|received]",
+  "description": "",
+  "examples": [
+    {
+      "user": "_frog c",
+      "bot": "🎣 | You found 1 frog ▹ Was: 25639 ▹ Became: 25640 (+1)"
+    },
+    {
+      "user": "_frog s",
+      "bot": "🐸 | You have 25640 frogs ▹ Gifted: 0 frogs ▹ Received: 921 frogs"
+    },
+    {
+      "user": "_frog c",
+      "bot": "⏱️ | Too fast! Wait another 59 m. 24 s."
+    }
+  ],
+  "aliases": [ "fr", "frog" ],
+  "cooldown": 2,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

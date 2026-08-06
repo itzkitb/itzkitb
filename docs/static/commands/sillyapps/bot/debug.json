@@ -1,0 +1,17 @@
+{
+  "name": "debug",
+  "info": "i throw random things in here to test them",
+  "usage": "debug [type] [args]",
+  "description": "",
+  "examples": [
+    {
+      "user": "_debug HackerCD",
+      "bot": "🔐 | Permission denied"
+    }
+  ],
+  "aliases": [ "debug", "dbg" ],
+  "cooldown": 0,
+  "requirementRoles": [ "su:*" ],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}

@@ -1,0 +1,21 @@
+{
+  "name": "set prefix",
+  "info": "sets a custom prefix for the channel",
+  "usage": "setprefix <prefix>",
+  "description": "> сurrently, this command is available only to bot administrators; in the future, channel moderators will also have access to it",
+  "examples": [
+    {
+      "user": "_setprefix !",
+      "bot": "✅ | The command prefix for #butterbror has been changed to '!'"
+    },
+    {
+      "user": "!locale set ru",
+      "bot": "✨ | Ваш язык установлен на русский"
+    }
+  ],
+  "aliases": [ "setprefix", "prefix", "sp" ],
+  "cooldown": 2,
+  "requirementRoles": [ "su:twitch:prefix" ],
+  "platformCompatibilityType": "whitelist",
+  "platformCompatibilityList": [ "twitch" ]
+}
