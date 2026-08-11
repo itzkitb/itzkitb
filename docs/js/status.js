@@ -1,5 +1,6 @@
 const MAX_HISTORY = 180;
 let charts = {};
+let uptimeDataCache = null;
 let historyData = {
 	labels: [],
 	cpu: [],
@@ -49,6 +50,73 @@ function formatTimeSpan(timeStr) {
 		return `${d ? d + 'd ' : ''}${hmsParts[0]}h ${hmsParts[1]}m`;
 	}
 	return timeStr;
+}
+
+function renderUptimeBar(uptimeData) {
+	if (uptimeData) uptimeDataCache = uptimeData;
+	if (!uptimeDataCache) return;
+
+	const container = document.getElementById('uptime_bar_container');
+	const percentLabel = document.getElementById('val_uptime_percent');
+	const labelStart = document.getElementById('uptime_label_start');
+	if (!container) return;
+
+	container.innerHTML = '';
+
+	const isMobile = window.innerWidth <= 600;
+	const hoursToDisplay = isMobile ? 72 : 168;
+	const displayData = uptimeDataCache.slice(-hoursToDisplay);
+
+	if (labelStart) labelStart.textContent = isMobile ? '3 days ago' : '7 days ago';
+
+	const TARGET_PINGS_PER_HOUR = 360;
+	let totalPingsReceived = 0;
+	let totalMaxPossiblePings = 0;
+
+	const totalHours = displayData.length;
+	const now = Date.now();
+
+	displayData.forEach((item, index) => {
+		const pings = item.pings || 0;
+		totalPingsReceived += pings;
+
+		const isLastSegment = (index === totalHours - 1);
+		let targetPings = TARGET_PINGS_PER_HOUR;
+
+		if (isLastSegment) {
+			const elapsedMs = Math.max(0, now - item.timestamp);
+			const elapsedSeconds = Math.floor(elapsedMs / 1000);
+			targetPings = Math.max(1, Math.min(TARGET_PINGS_PER_HOUR, Math.floor(elapsedSeconds / 10)));
+		}
+
+		totalMaxPossiblePings += targetPings;
+
+		const ratio = Math.min(1, Math.max(0, pings / targetPings));
+		const hue = Math.round(ratio * 120);
+		const lightness = Math.round(71 + ratio * 10);
+		const barColor = `hsl(${hue}, 100%, ${lightness}%)`;
+
+		const segment = document.createElement('div');
+		segment.className = 'uptime-bar-segment';
+		segment.style.backgroundColor = barColor;
+
+		const dateStr = new Date(item.timestamp).toLocaleString('ru-RU', {
+			day: 'numeric',
+			month: 'short',
+			hour: '2-digit',
+			minute: '2-digit'
+		});
+
+		const statusText = pings > 0 ? (ratio >= 0.95 ? 'ONLINE' : 'PARTIAL') : 'OFFLINE';
+		segment.setAttribute('data-tooltip', `${dateStr} | ${statusText} (${pings}/${targetPings})`);
+
+		container.appendChild(segment);
+	});
+
+	if (percentLabel && totalMaxPossiblePings > 0) {
+		const overallPercent = ((totalPingsReceived / totalMaxPossiblePings) * 100).toFixed(2);
+		percentLabel.textContent = `${overallPercent}%`;
+	}
 }
 
 function createChart(containerId, label, maxVal = null) {
@@ -150,6 +218,10 @@ async function fetchStats() {
 		const isOk = data.status === 'ok';
 		statusContainer.innerHTML = `<span class="status-badge ${isOk ? 'status-ok' : 'status-fail'}">${data.status || 'UNKNOWN'}</span>`;
 
+		if (Array.isArray(data.uptime)) {
+			renderUptimeBar(data.uptime);
+		}
+
 		const lastDate = data.lastStatus ? new Date(data.lastStatus).toLocaleTimeString() : new Date().toLocaleTimeString();
 		document.getElementById('last_update_text').textContent = `last updated at ${lastDate}`;
 
@@ -205,3 +277,4 @@ async function initStatusPage() {
 }
 
 initStatusPage();
+window.addEventListener('resize', () => renderUptimeBar());

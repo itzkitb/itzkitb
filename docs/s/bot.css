@@ -90,6 +90,10 @@
     background-clip: text;
 }
 
+.bb-title {
+	display: block;
+}
+
 .blend-overlay {
     mix-blend-mode: overlay;
 }
@@ -127,4 +131,34 @@
     to {
         transform: translateX(25ch) translateY(10px);
     }
+}
+
+.dj {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.header {
+	gap: 10px;
+}
+
+@media (max-width: 550px) {
+	.bb-title {
+		display: none;
+	}
+	
+	.dj {
+		gap: 0;
+	}
+	
+	.header-menu {
+		gap: 10px !important;
+	}
+	
+	.header {
+		gap: 0;
+	}
 }

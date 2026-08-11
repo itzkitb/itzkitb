@@ -5,7 +5,8 @@
 }
 
 .sidebar-box {
-    background: var(--tdark);
+	background: var(--tdark);
+	background: linear-gradient(180deg, rgba(160, 255, 160, 0.1) 0%, rgba(128, 217, 128, 0.1) 100%);
     backdrop-filter: blur(10px);
 }
 
@@ -93,6 +94,7 @@
 }
 
 .chat-example {
+	overflow-wrap: break-word;
     background: #111a11;
     padding: 8px 10px;
     margin-top: 6px;
@@ -146,7 +148,7 @@
     background: #ffdc6b;
 }
 
-/* ><> markdown */
+/* --- MARKDOWN STYLES --- */
 .markdown-body {
     color: #ffffff;
     font-family: "Montserrat", sans-serif;
@@ -254,7 +256,7 @@
         font-weight: bold;
     }
 
-/* ><> lightbox */
+/* --- LIGHTBOX --- */
 .lightbox {
     position: fixed;
     top: 0;
