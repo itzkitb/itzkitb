@@ -39,17 +39,22 @@ function formatBytes(bytes) {
 
 function formatTimeSpan(timeStr) {
 	if (!timeStr) return '0s';
-	const parts = timeStr.split('.');
-	let d = 0, hms = timeStr;
-	if (parts.length > 1 && !timeStr.startsWith("0.")) {
-		d = parts[0];
-		hms = parts[1];
-	}
-	const hmsParts = hms.split(':');
-	if (hmsParts.length >= 2) {
-		return `${d ? d + 'd ' : ''}${hmsParts[0]}h ${hmsParts[1]}m`;
-	}
-	return timeStr;
+
+	const match = timeStr.match(/^(?:(\d+)\.)?(\d{1,2}):(\d{2})(?::(\d{2}))?/);
+	if (!match) return timeStr;
+
+	const d = parseInt(match[1] || '0', 10);
+	const h = parseInt(match[2] || '0', 10);
+	const m = parseInt(match[3] || '0', 10);
+	const s = parseInt(match[4] || '0', 10);
+
+	const parts = [];
+	if (d > 0) parts.push(`${d}d`);
+	if (h > 0) parts.push(`${h}h`);
+	if (m > 0) parts.push(`${m}m`);
+	if (s > 0 || parts.length === 0) parts.push(`${s}s`);
+
+	return parts.join(' ');
 }
 
 function renderUptimeBar(uptimeData) {
