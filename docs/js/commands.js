@@ -230,7 +230,7 @@ const USER_POSTNOUNS = [
     "ai",
     "0_o",
     "banned",
-    "_XI"
+    "_XI",
     "453",
     "",
     "o_0",
