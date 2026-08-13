@@ -215,7 +215,7 @@ const USER_POSTNOUNS = [
     "_",
     "",
     "nog",
-    "L0ST"
+    "L0ST",
     "",
     "1",
     "26",
