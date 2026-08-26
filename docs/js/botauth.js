@@ -1,7 +1,8 @@
 const CONFIG = {
-    clientId: null,
+    clientId: 'n7kkvjel1ez8zvln4f3c8zvxnfkhvj',
     redirectUri: window.location.origin + '/ba',
-    botUsername: null,
+    botUsername: 'butterbror',
+    apiUrl: 'https://api.tupid.lol',
     scopes: [
         'chat:read',
         'chat:edit',
@@ -24,52 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const successBox = document.getElementById('success-box');
     const authBtn = document.getElementById('authBtn');
     const resetBtn = document.getElementById('resetBtn');
-    const copyCodeBtn = document.getElementById('copyCodeBtn');
     const toast = document.getElementById('toast');
 
-    // s1: load or save config params
     const urlParams = new URLSearchParams(window.location.search);
-    const hashParams = new URLSearchParams(window.location.hash.substring(1));
+    const authCode = urlParams.get('code');
 
-    // check params
-    const urlClientId = urlParams.get('client_id');
-    const urlBotUsername = urlParams.get('bot_username');
-
-    if (urlClientId) {
-        // first visit
-        sessionStorage.setItem('twitch_auth_client_id', urlClientId);
-        sessionStorage.setItem('twitch_auth_bot_username', urlBotUsername || 'butterbror');
-        CONFIG.clientId = urlClientId;
-        CONFIG.botUsername = urlBotUsername || 'butterbror';
+    if (authCode) {
+        exchangeCode(authCode);
     } else {
-        // from twitch
-        CONFIG.clientId = sessionStorage.getItem('twitch_auth_client_id');
-        CONFIG.botUsername = sessionStorage.getItem('twitch_auth_bot_username') || 'butterbror';
-    }
-
-    // s2: check access_token in hash
-    const accessToken = hashParams.get('access_token');
-
-    if (accessToken) {
-        if (!CONFIG.clientId) {
-            showError('error: missing client id. please start the authorization process from the bot command');
-            authBtn.disabled = true;
-            return;
-        }
-        processToken(accessToken);
-    } else if (CONFIG.clientId) {
-        // show auth
         showAuthSection();
-    } else {
-        // ???
-        showError('error: missing client id. please use the link provided by the bot');
-        authBtn.disabled = true;
-        return;
     }
 
     authBtn.addEventListener('click', startAuth);
     resetBtn.addEventListener('click', resetAuth);
-    copyCodeBtn.addEventListener('click', copyCode);
 
     function showAuthSection() {
         authSection.style.display = 'block';
@@ -118,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function startAuth() {
         const scopeString = CONFIG.scopes.join(' ');
         const authUrl = `https://id.twitch.tv/oauth2/authorize` +
-            `?response_type=token` +
+            `?response_type=code` +
             `&client_id=${CONFIG.clientId}` +
             `&redirect_uri=${encodeURIComponent(CONFIG.redirectUri)}` +
             `&scope=${encodeURIComponent(scopeString)}` +
@@ -127,98 +95,43 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = authUrl;
     }
 
-    async function processToken(accessToken) {
+    async function exchangeCode(code) {
         showLoadingSection();
 
         try {
-            const response = await fetch('https://api.twitch.tv/helix/users', {
+            const response = await fetch(`${CONFIG.apiUrl}/auth/exchange`, {
+                method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${accessToken}`,
-                    'Client-Id': CONFIG.clientId
-                }
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    code: code
+                })
             });
 
             if (!response.ok) {
-                throw new Error(`Failed to get user info: HTTP ${response.status}`);
+                const errorData = await response.json().catch(() => ({}));
+                throw new Error(errorData.message || `HTTP ${response.status}`);
             }
 
-            const data = await response.json();
-            const user = data.data[0];
+            const result = await response.json();
 
-            if (!user) {
-                throw new Error('No user data received');
-            }
-
-            const authData = {
-                channel: user.login,
-                token: accessToken
-            };
-
-            const jsonString = JSON.stringify(authData);
-            const base64Code = btoa(jsonString);
-
-            document.getElementById('channelName').textContent = user.login;
-            document.getElementById('userId').textContent = user.id;
-            document.getElementById('botUsername').textContent = CONFIG.botUsername;
-            document.getElementById('authCode').textContent = base64Code;
+            document.getElementById('channelName').textContent = result.login;
+            document.getElementById('userId').textContent = result.userId;
 
             showSuccessSection();
-            showSuccess('authorization successful! copy the code and send it to the bot via whisper');
+            showSuccess('auth successful. the bot will connect within ~1 minute');
 
-            // clean url
-            window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+            window.history.replaceState({}, document.title, window.location.pathname);
 
         } catch (err) {
-            console.error('error processing token:', err);
-            showError(`failed to process authorization: ${err.message}`);
+            console.error('error exchanging code:', err);
+            showError(`failed to process auth: ${err.message}`);
             showAuthSection();
         }
     }
 
-    function copyCode() {
-        const code = document.getElementById('authCode').textContent;
-
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(code).then(() => {
-                showToast('code copied');
-            }).catch(() => {
-                copyWithTextarea(code);
-            });
-        } else {
-            copyWithTextarea(code);
-        }
-    }
-
-    function copyWithTextarea(text) {
-        const textarea = document.createElement("textarea");
-        textarea.style.position = "absolute";
-        textarea.style.left = "-9999px";
-        textarea.style.top = "-9999px";
-        textarea.value = text;
-        document.body.appendChild(textarea);
-
-        textarea.select();
-        textarea.setSelectionRange(0, 99999);
-
-        try {
-            const successful = document.execCommand('copy');
-            if (successful) {
-                showToast('code copied');
-            } else {
-                showToast('copy failed');
-            }
-        } catch (err) {
-            console.error('copy failed: ', err);
-            showToast('copy failed');
-        }
-
-        document.body.removeChild(textarea);
-    }
-
     function resetAuth() {
-        // clear session storage and reload
-        sessionStorage.removeItem('twitch_auth_client_id');
-        sessionStorage.removeItem('twitch_auth_bot_username');
         window.location.href = window.location.pathname;
     }
 });

@@ -48,7 +48,7 @@
 
                 <div class="step">
                     <span class="step-number">3.</span>
-                    <p>copy the code and send it to the bot via whisper on twitch<br>the bot will automatically connect to your channel with full permissions</p>
+                    <p>your token will be securely delivered to the bot<br>the bot will automatically connect to your channel within 30 seconds</p>
                 </div>
 
                 <div style="text-align: center; margin: 40px 0;">
@@ -59,7 +59,7 @@
 
                 <div class="info-box">
                     <p><strong>security note:</strong></p>
-                    <p>your access token will be shown on this page. only share the generated code with the bot via whisper. never share it publicly</p>
+                    <p>your authorization is processed securely through our backend. tokens are never exposed to the browser or logged</p>
                 </div>
             </div>
 
@@ -72,35 +72,30 @@
                     <p><strong>user id:</strong> <span id="userId"></span></p>
                 </div>
 
-                <h2>your authorization code:</h2>
-                <p>copy this code and send it to the bot via whisper on twitch:</p>
-
-                <div class="code-block">
-                    <button class="copy-btn" id="copyCodeBtn">copy</button>
-                    <pre id="authCode"></pre>
+                <div style="text-align: center; margin: 40px 0; font-size: 4rem;">
+                    ✅
                 </div>
 
-                <h2>next steps:</h2>
+                <h2>what happens next:</h2>
+                
                 <div class="step">
                     <span class="step-number">1.</span>
-                    <p>click the "copy" button above to copy the code</p>
+                    <p>your authorization token has been securely delivered to the bot</p>
                 </div>
 
                 <div class="step">
                     <span class="step-number">2.</span>
-                    <p>open twitch and send a whisper to the bot:</p>
-                    <p><code>/w <span id="botUsername"></span> &lt;paste the code here&gt;</code></p>
+                    <p>the bot will automatically connect to your channel within 30 seconds</p>
                 </div>
 
                 <div class="step">
                     <span class="step-number">3.</span>
-                    <p>the bot will automatically connect to your channel with full permissions</p>
-                    <p>you'll see a success message in your chat</p>
+                    <p>you'll see a success message in your chat when the bot connects</p>
                 </div>
 
                 <div class="info-box">
                     <p><strong>important:</strong></p>
-                    <p>this code contains your access token. only send it to the bot via whisper. never share it in public chat or with other users</p>
+                    <p>you can close this page now. the bot will handle everything automatically</p>
                 </div>
             </div>
 
@@ -111,7 +106,7 @@
         </div>
     </main>
 
-    <div id="toast" class="toast unselectable">copied</div>
+    <div id="toast" class="toast unselectable"></div>
 
     <script src="/js/botauth.js"></script>
 </body>
