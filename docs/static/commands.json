@@ -43,6 +43,10 @@
         {
           "id": "bb_builtin_locale",
           "name": "locale"
+        },
+        {
+          "id": "sillyapps_bot_alias",
+          "name": "alias"
         }
       ]
     },
