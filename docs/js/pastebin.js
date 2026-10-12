@@ -2,14 +2,36 @@ const CONFIG = {
     apiBaseUrl: 'https://api.tupid.lol/pb/'
 };
 
+function escapeAttr(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+}
+
+function sanitizeUrl(url) {
+    try {
+        const parsed = new URL(url, window.location.origin);
+        if (['http:', 'https:', 'data:'].includes(parsed.protocol)) {
+            return parsed.href;
+        }
+    } catch (e) {}
+    return '';
+}
+
 // ><> marked.js
 const renderer = new marked.Renderer();
+
 renderer.image = function ({ href, title, text }) {
-    const titleAttr = title ? ` title="${title}"` : '';
-    const altText = text || '';
+    const safeSrc = sanitizeUrl(href || '');
+    const safeAlt = escapeAttr(text || '');
+    const safeTitle = title ? ` title="${escapeAttr(title)}"` : '';
+    
     return `
         <figure>
-            <img src="${href}" alt="${altText}"${titleAttr} onclick="openLightbox(this.src)">
+            <img src="${safeSrc}" alt="${safeAlt}"${safeTitle} data-lightbox>
         </figure>
     `;
 };
@@ -21,7 +43,7 @@ renderer.table = function (token) {
     if (token.header && token.header.length > 0) {
         headerHtml += '<tr>';
         token.header.forEach(cell => {
-            headerHtml += `<th>${marked.parseInline(cell.text)}</th>`;
+            headerHtml += `<th>${DOMPurify.sanitize(marked.parseInline(cell.text))}</th>`;
         });
         headerHtml += '</tr>';
     }
@@ -30,7 +52,7 @@ renderer.table = function (token) {
         token.rows.forEach(row => {
             bodyHtml += '<tr>';
             row.forEach(cell => {
-                bodyHtml += `<td>${marked.parseInline(cell.text)}</td>`;
+                bodyHtml += `<td>${DOMPurify.sanitize(marked.parseInline(cell.text))}</td>`;
             });
             bodyHtml += '</tr>';
         });
@@ -52,20 +74,41 @@ marked.setOptions({
     gfm: true
 });
 
-// ><> lightbox
-window.openLightbox = function (src) {
+// ><> lightbox with event delegation
+function setupLightbox() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
-    lightboxImg.src = src;
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-};
+    const lightboxClose = document.getElementById('lightboxClose');
+    const contentDiv = document.getElementById('content');
 
-window.closeLightbox = function () {
-    const lightbox = document.getElementById('lightbox');
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-};
+    function openLightbox(img) {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+    }
+
+    contentDiv.addEventListener('click', (e) => {
+        const img = e.target.closest('img[data-lightbox]');
+        if (img) openLightbox(img);
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const contentDiv = document.getElementById('content');
@@ -83,33 +126,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const cancelBtn = document.getElementById('cancelBtn');
 
     const toast = document.getElementById('toast');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxClose = document.getElementById('lightboxClose');
 
     let markdownContent = "";
     let currentDocId = null;
 
-    // events
     shareBtn.addEventListener('click', handleShare);
     copyBtn.addEventListener('click', handleCopy);
     newBtn.addEventListener('click', () => setMode('edit'));
     cancelBtn.addEventListener('click', handleCancelEdit);
     saveBtn.addEventListener('click', handlePublish);
-    lightboxClose.addEventListener('click', closeLightbox);
 
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
-        }
-    });
-
-    // --> init(); <--
-    //     ^^^^^^^
-    //     |||||||
+    setupLightbox();
     init();
 
     async function init() {
@@ -146,7 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 markdownContent = await response.text();
             }
 
-            contentDiv.innerHTML = marked.parse(markdownContent);
+            // sanitize rendered html to prevent xss
+            contentDiv.innerHTML = DOMPurify.sanitize(marked.parse(markdownContent));
             setMode('view');
         } catch (err) {
             console.error(err);
@@ -190,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             markdownContent = textToPublish;
-            contentDiv.innerHTML = marked.parse(markdownContent);
+            contentDiv.innerHTML = DOMPurify.sanitize(marked.parse(markdownContent));
             setMode('view');
             showToast('published successfully');
         } catch (err) {
