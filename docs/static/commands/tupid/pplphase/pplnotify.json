@@ -1,0 +1,21 @@
+{
+  "name": "pplnotify",
+  "info": "will notify you about a new phase on the pepeland website",
+  "usage": "subscribe|unsubscribe <phase|text|status|all>",
+  "description": "",
+  "examples": [
+    {
+      "user": "_pplnotify sub all",
+      "bot": "PagMan | Subscribed to 'all'"
+    },
+    {
+      "user": "_pplnotify unsub all",
+      "bot": "SAJ | Unsubscribed from 'all'"
+    }
+  ],
+  "aliases": [],
+  "cooldown": 3,
+  "requirementRoles": [ ],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": [ ]
+}

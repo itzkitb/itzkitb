@@ -1,0 +1,17 @@
+{
+  "name": "pplphase",
+  "info": "find out the current phase on the pepeland website",
+  "usage": "",
+  "description": "",
+  "examples": [
+    {
+      "user": "_pplphase",
+      "bot": "pepeland | Active PepeLand phases: Оранжевая (active), Фаза ответов на вопросы (active) (progress: 2 из 6)"
+    }
+  ],
+  "aliases": ["ppl", "pepeland", "phase"],
+  "cooldown": 10,
+  "requirementRoles": [ ],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": [ ]
+}
