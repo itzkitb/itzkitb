@@ -89,6 +89,10 @@
         {
           "id": "tupid_bot_periodically_rewards",
           "name": "monthly"
+        },
+        {
+          "id": "tupid_bot_bid",
+          "name": "bid"
         }
       ]
     },

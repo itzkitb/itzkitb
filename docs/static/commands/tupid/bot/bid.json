@@ -1,0 +1,37 @@
+{
+  "name": "bid",
+  "info": "place a bid with your BTR for the event",
+  "usage": "<id> <choice> <amount|all|N%> | [active] | history | create \"<name>\" \"<variant1>\" \"<variant2>\" ... | end|stop <id> [<winner number>...] | sub | unsub",
+  "description": "",
+  "examples": [
+    {
+      "user": "_bid 5g5hs3 yes 100",
+      "bot": "🎯 | Stake 100 BTR on 'yes' in [5g5hs3] Will pepeland open 11.11.2026? accepted"
+    },
+    {
+      "user": "_bid 5g5hs3 yes 50%",
+      "bot": "🎯 | Stake 250 BTR on 'yes' in [5g5hs3] Will pepeland open 11.11.2026? accepted"
+    },
+    {
+      "user": "_bid 5g5hs3 no all",
+      "bot": "🚫 | You already staked on another variant of this bid. You can only top up your existing stake"
+    },
+    {
+      "user": "_bid",
+      "bot": "🎲 | Active bids:  ▹ [5g5hs3] Will pepeland open 11.11.2026? ▹ Pool: 350 BTR ▹ 1. yes | 2. no"
+    },
+    {
+      "user": "_bid history",
+      "bot": "📜 | Bid history: https://tupid.lol/p?i=abcde"
+    },
+    {
+      "user": "_bid sub",
+      "bot": "🔔 | You are subscribed to bid notifications"
+    }
+  ],
+  "aliases": [],
+  "cooldown": 2,
+  "requirementRoles": [],
+  "platformCompatibilityType": "blacklist",
+  "platformCompatibilityList": []
+}
